@@ -1,0 +1,39 @@
+
+li {list-style-type: none;
+    font-size: 16pt;
+    }
+.mail {
+    border-radius: 25px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    width: 500px;
+    background: 
+    #847eda;
+    border: 1px soild 
+    silver;
+    }
+.mail h2 {
+    margin-left: 38px;
+    }
+.mail h4 {
+        margin-left: 38px;
+        }
+
+input {
+    font-size: 20pt;
+    }
+input:focus, textarea:focus{
+    background-color: 
+    lightyellow;
+    }
+input submit {
+    font-size: 12pt;
+    }
+.rq {
+    color: 
+    #FF0000;
+    font-size: 10pt;
+    }
+
