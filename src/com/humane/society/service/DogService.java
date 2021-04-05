@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.humane.society.dao.DogDao;
-
+import com.humane.society.entity.Cat;
 import com.humane.society.entity.Dog;
 
 @Service
@@ -24,6 +24,10 @@ private DogDao dogD = new DogDao();
 	
 	public Dog getDogService(int dId) {
 		return dogD.getDog(dId);
+	}
+	
+	public void updateDogService(Dog dog) {
+		dogD.updateDog(dog);
 	}
 	
 	public List<Dog> getAllDogsService() {

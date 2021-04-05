@@ -107,7 +107,7 @@ public class HomeController {
 		
 		
 		
-		//Employee Methods
+		//Employee CRUD Methods
 		
 		@PostMapping("/addEmp")
 		public String addNewEmployee(@ModelAttribute("employee") Employee emp, Model model, BindingResult result, HttpSession session) {
@@ -196,7 +196,7 @@ public class HomeController {
 		
 
 		
-		//STORE METHODS
+		//Location CRUD methods
 		
 		
 				@PostMapping("/addLocation")
@@ -268,80 +268,161 @@ public class HomeController {
 				
 				
 				
-				//Cat CRUD methods
+				//Cat CRUD methods 
 				
 				@PostMapping("/addCat")
 				public String addNewCat(@ModelAttribute("Cat") Cat cat, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
-					int eId = cat.getCId();
-					Employee driver = empService.getEmpService(eId);
+					int cId = cat.getCId();
+					Cat loc = catService.getCatService(cId);
 					if (result.hasErrors()) {
-						model.addAttribute("addCarError", "There was an error with an input field, please try again");
-						return "vehicles";
+						model.addAttribute("addCatError", "There was an error with an input field, please try again");
+						return "cats";
 					} else if (loggedIn==null) {
-						model.addAttribute("addCarSessionError", "You must be logged in to add a vehicle to the database");
-						return "vehicles";
-					} else if (driver==null) {
-						model.addAttribute("addCarEmpError", "The Driver ID must correspond with an existing employee");
-						return "vehicles";
+						model.addAttribute("addCatSessionError", "You must be logged in to add a cat to the database");
+						return "cats";
+					} else if (loc==null) {
+						model.addAttribute("addCatLocError", "The location ID must correspond with an existing location");
+						return "cats";
 					}
-					carService.addCarService(car);
-					model.addAttribute("addCarSuccess", "Vehicle added to the database successfully!");
+					catService.addCatService(cat);
+					model.addAttribute("addCatSuccess", "cat added to the database successfully!");
 					System.out.println("added to db successfully");
-					return "vehicles";
+					return "cats";
 				}
 				
-				@PostMapping("/getCar")
-				public String getCar(@ModelAttribute("driverVehicle") DriverVehicle car, @RequestParam("dId") int dId, Model model, HttpSession session) {
+				@PostMapping("/getCat")
+				public String getCat(@ModelAttribute("cat") Cat cat, @RequestParam("cId") int cId, Model model, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
-					car = carService.getCarService(dId);
-					if (car==null) {
-						model.addAttribute("getCarError", "Please enter the ID of an existing vehicle");
+					cat = catService.getCatService(cId);
+					if (cat==null) {
+						model.addAttribute("getCatError", "Please enter a valid cat id");
 					} else if (loggedIn==null) {
-						model.addAttribute("getCarSessionError", "You must be logged in to view a vehicle in the database");
-						return "vehicles";
+						model.addAttribute("getCatSessionError", "You must be logged in to view a cat in the database");
+						return "cats";
 					} else {
-						model.addAttribute("dId", car.getdId() + ", ");
-						model.addAttribute("model", car.getModel() + ", ");
-						model.addAttribute("year", car.getYear() + ", ");
-						model.addAttribute("color", car.getColor() + ", ");
-						model.addAttribute("insuranceProvider", car.getInsuranceProvider() + ", ");
-						model.addAttribute("driverId", car.getDriverId() + ", ");
+						model.addAttribute("cId", cat.getCId() + ", ");
+						model.addAttribute("model", cat.getName() + ", ");
+						model.addAttribute("age", cat.getAge() + ", ");
+						model.addAttribute("breed", cat.getBreed() + ", ");
+						model.addAttribute("upToDateShots", cat.isUpToDateShots() + ", ");
+						model.addAttribute("gender", cat.getGender() + ", ");
+						model.addAttribute("locationId", cat.getLocationId() + ", ");
 					}
 					return "vehicles";
 				}
 				
-				@PostMapping("/updateCar")
-				public String updateCar(@ModelAttribute("driverVehicle") DriverVehicle car, Model model, BindingResult result, HttpSession session) {
+				@PostMapping("/updateCat")
+				public String updateCat(@ModelAttribute("cat") Cat cat, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
 					if (result.hasErrors()) {
-						model.addAttribute("updateCarError", "There was an error with an input field, please try again");
-						return "vehicles";
+						model.addAttribute("updateCatError", "Please try again, input field error");
+						return "cats";
 					} else if (loggedIn==null) {
-						model.addAttribute("updateCarSessionError", "You must be logged in to update a vehicle in the database");
-						return "vehicles";
+						model.addAttribute("updateCatSessionError", "You must be logged in to update a cat in the database");
+						return "cats";
 					} else {
-						carService.updateCarService(car);
-						model.addAttribute("updateCarSuccess", "Vehicle updated successfully!");
+						catService.updateCatService(cat);
+						model.addAttribute("updateCatSuccess", "Vehicle updated successfully!");
 						System.out.println("updated successfully");
 					}
-					return "vehicles";
+					
+					return "cats";
 				}
 				
-				@PostMapping("/removeCar")
-				public String removeCar(@ModelAttribute("driverVehicle") DriverVehicle car, @RequestParam("dId") int dId, Model model, HttpSession session) {
+				@PostMapping("/removeCat")
+				public String removeCat(@ModelAttribute("cat") Cat cat, @RequestParam("cId") int cId, Model model, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
-					if (carService.getCarService(dId)==null) {
-						model.addAttribute("RemoveCarError", "Please enter ID of an existing vehicle");
+					if (catService.getCatService(cId)==null) {
+						model.addAttribute("RemoveCatError", "Please enter ID of an existing cat");
 					} else if (loggedIn==null) {
-						model.addAttribute("removeCarSessionError", "You must be logged in to remove a vehicle in the database");
-						return "vehicles";
+						model.addAttribute("removeCatSessionError", "You must be logged in to remove a cat in the database");
+						return "cats";
 					} else {
-						carService.removeCarService(dId);
-						model.addAttribute("removeCarSuccess", "Vehicle removed from database sucessfully!");
+						catService.removeCatService(cId);
+						model.addAttribute("removeCatSuccess", "cat removed from database");
 					}
-					return "vehicles";
+					return "cats";
 				}
 	
+				
+				
+				
+//			// Dog CRUD methods
+				
+				@PostMapping("/addDog")
+				public String addNewDog(@ModelAttribute("Dog") Dog dog, Model model, BindingResult result, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					int dId = dog.getDId();
+					Dog loc = dogService.getDogService(dId);
+					if (result.hasErrors()) {
+						model.addAttribute("addDogError", "There was an error with an input field, please try again");
+						return "dogs";
+					} else if (loggedIn==null) {
+						model.addAttribute("addDogSessionError", "You must be logged in to add a dog to the database");
+						return "dogs";
+					} else if (loc==null) {
+						model.addAttribute("addDogLocError", "The location ID must correspond with an existing location");
+						return "dogs";
+					}
+					dogService.addDogService(dog);
+					model.addAttribute("addDogSuccess", "dog added to the database successfully!");
+					System.out.println("added to db successfully");
+					return "dogs";
+				}
+				
+				@PostMapping("/getDog")
+				public String getDog(@ModelAttribute("Dog") Dog Dog, @RequestParam("dId") int dId, Model model, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					Dog = dogService.getDogService(dId);
+					if (Dog==null) {
+						model.addAttribute("getCatError", "Please enter a valid Dog id");
+					} else if (loggedIn==null) {
+						model.addAttribute("getCatSessionError", "You must be logged in to view a Dog in the database");
+						return "dogs";
+					} else {
+						model.addAttribute("cId", Dog.getDId() + ", ");
+						model.addAttribute("model", Dog.getName() + ", ");
+						model.addAttribute("age", Dog.getAge() + ", ");
+						model.addAttribute("breed", Dog.getBreed() + ", ");
+						model.addAttribute("upToDateShots", Dog.isUpToDateShots() + ", ");
+						model.addAttribute("gender", Dog.getGender() + ", ");
+						model.addAttribute("locationId", Dog.getLocationId() + ", ");
+					}
+					return "dogs";
+				}
+				
+				@PostMapping("/updateDog")
+				public String updateDog(@ModelAttribute("dog") Dog dog, Model model, BindingResult result, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					if (result.hasErrors()) {
+						model.addAttribute("updateDogError", "Please try again, input field error");
+						return "dogs";
+					} else if (loggedIn==null) {
+						model.addAttribute("updateCatSessionError", "You must be logged in to update a dog in the database");
+						return "dogs";
+					} else {
+						dogService.updateDogService(dog);
+						model.addAttribute("updateDogSuccess", "Dog updated successfully!");
+						System.out.println("updated successfully");
+					}
+					
+					return "dogs";
+				}
+				
+				@PostMapping("/removeDog")
+				public String removeDog(@ModelAttribute("dog") Dog dog, @RequestParam("dId") int dId, Model model, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					if (dogService.getDogService(dId)==null) {
+						model.addAttribute("RemoveDogError", "Please enter ID of an existing dog");
+					} else if (loggedIn==null) {
+						model.addAttribute("removeDogSessionError", "You must be logged in to remove a dog in the database");
+						return "dogs";
+					} else {
+						dogService.removeDogService(dId);
+						model.addAttribute("removeDogSuccess", "Dog removed from database");
+					}
+					return "dogs";
+				}
 
-}
+	}

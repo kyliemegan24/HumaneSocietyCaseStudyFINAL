@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.humane.society.dao.CatDao;
 import com.humane.society.entity.Cat;
+import com.humane.society.entity.Location;
 
 @Service
 public class CatService {
@@ -24,6 +25,10 @@ public class CatService {
 	
 	public Cat getCatService(int cId) {
 		return catC.getCat(cId);
+	}
+	
+	public void updateCatService(Cat cat) {
+		catC.updateCat(cat);
 	}
 	
 	public List<Cat> getAllCatsService() {
