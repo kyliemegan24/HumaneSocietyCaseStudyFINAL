@@ -251,7 +251,7 @@ public class HomeController {
 					return "locations";
 				}
 				
-				@PostMapping("/removeStore")
+				@PostMapping("/removeLocation")
 				public String removeStore(@ModelAttribute("store") Location loc, @RequestParam("locId") int locId, Model model, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
 					if (locService.getLocService(locId)==null) {
@@ -268,7 +268,80 @@ public class HomeController {
 				
 				
 				
+				//Cat CRUD methods
 				
+				@PostMapping("/addCat")
+				public String addNewCat(@ModelAttribute("Cat") Cat cat, Model model, BindingResult result, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					int eId = cat.getCId();
+					Employee driver = empService.getEmpService(eId);
+					if (result.hasErrors()) {
+						model.addAttribute("addCarError", "There was an error with an input field, please try again");
+						return "vehicles";
+					} else if (loggedIn==null) {
+						model.addAttribute("addCarSessionError", "You must be logged in to add a vehicle to the database");
+						return "vehicles";
+					} else if (driver==null) {
+						model.addAttribute("addCarEmpError", "The Driver ID must correspond with an existing employee");
+						return "vehicles";
+					}
+					carService.addCarService(car);
+					model.addAttribute("addCarSuccess", "Vehicle added to the database successfully!");
+					System.out.println("added to db successfully");
+					return "vehicles";
+				}
+				
+				@PostMapping("/getCar")
+				public String getCar(@ModelAttribute("driverVehicle") DriverVehicle car, @RequestParam("dId") int dId, Model model, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					car = carService.getCarService(dId);
+					if (car==null) {
+						model.addAttribute("getCarError", "Please enter the ID of an existing vehicle");
+					} else if (loggedIn==null) {
+						model.addAttribute("getCarSessionError", "You must be logged in to view a vehicle in the database");
+						return "vehicles";
+					} else {
+						model.addAttribute("dId", car.getdId() + ", ");
+						model.addAttribute("model", car.getModel() + ", ");
+						model.addAttribute("year", car.getYear() + ", ");
+						model.addAttribute("color", car.getColor() + ", ");
+						model.addAttribute("insuranceProvider", car.getInsuranceProvider() + ", ");
+						model.addAttribute("driverId", car.getDriverId() + ", ");
+					}
+					return "vehicles";
+				}
+				
+				@PostMapping("/updateCar")
+				public String updateCar(@ModelAttribute("driverVehicle") DriverVehicle car, Model model, BindingResult result, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					if (result.hasErrors()) {
+						model.addAttribute("updateCarError", "There was an error with an input field, please try again");
+						return "vehicles";
+					} else if (loggedIn==null) {
+						model.addAttribute("updateCarSessionError", "You must be logged in to update a vehicle in the database");
+						return "vehicles";
+					} else {
+						carService.updateCarService(car);
+						model.addAttribute("updateCarSuccess", "Vehicle updated successfully!");
+						System.out.println("updated successfully");
+					}
+					return "vehicles";
+				}
+				
+				@PostMapping("/removeCar")
+				public String removeCar(@ModelAttribute("driverVehicle") DriverVehicle car, @RequestParam("dId") int dId, Model model, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					if (carService.getCarService(dId)==null) {
+						model.addAttribute("RemoveCarError", "Please enter ID of an existing vehicle");
+					} else if (loggedIn==null) {
+						model.addAttribute("removeCarSessionError", "You must be logged in to remove a vehicle in the database");
+						return "vehicles";
+					} else {
+						carService.removeCarService(dId);
+						model.addAttribute("removeCarSuccess", "Vehicle removed from database sucessfully!");
+					}
+					return "vehicles";
+				}
 	
 
 }
