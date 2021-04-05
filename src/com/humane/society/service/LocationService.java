@@ -32,16 +32,20 @@ private LocationDao locL = new LocationDao();
 		return locL.getAllLocs();
 	}
 	
+	public void updateLocService(Location loc) {
+		locL.updateLoc(loc);
+	}
+	
 	public void removeLocService(int locId) {
 		locL.removeLoc(locId);
 	}
 	
 	public void addEmpToLocService(int eId, int locId) {
-		locL.addEmpToStore(eId, locId);
+		locL.addEmpToLoc(eId, locId);
 	}
 	
-	public void removeEmpFromStoreService(int eId, int locId) {
-		locL.removeEmpFromStore(eId, locId);
+	public void removeEmpFromLocService(int eId, int locId) {
+		locL.removeEmpFromLoc(eId, locId);
 	}
 	
 	public List<Employee> viewAllEmpService(int locId) {

@@ -25,6 +25,10 @@ public class EmployeeService {
 		return empD.getEmp(eId);
 	}
 	
+	public void updateEmpService(Employee emp) {
+		empD.updateEmp(emp);
+	}
+	
 	public List<Employee> getAllEmpService() {
 		return empD.getAllEmp();
 	}

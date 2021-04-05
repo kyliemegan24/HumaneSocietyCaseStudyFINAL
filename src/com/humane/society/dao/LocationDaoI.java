@@ -11,7 +11,7 @@ public interface LocationDaoI {
 	public boolean updateLoc(Location loc);
 	public boolean removeLoc(int id);
 	public List<Location> getAllLocs();
-	public void addEmpToStore(int eId, int locId);
-	public void removeEmpFromStore(int eId, int locId);
+	public void addEmpToLoc(int eId, int locId);
+	public void removeEmpFromLoc(int eId, int locId);
 	public List<Employee> viewAllEmp(int locId);
 }

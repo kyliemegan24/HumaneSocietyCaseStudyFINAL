@@ -32,16 +32,7 @@ public class LocationDao extends DBConnection implements LocationDaoI {
 	@Override
 	public Location getLoc(int locId) {
 		this.connect();
-//		Employee empFound = em.find(Employee.class, id);
-//		Query q = em.createQuery("select e from Employee e where e.id = :eID");
-		Query q = em.createNamedQuery("getLocById");
-		q.setParameter("locId", locId);
-		List<Location> locs = q.getResultList();
-		Location locFound = null;
-		for (Location l: locs) {
-			locFound = l;
-			break;
-		}
+		Location locFound = em.find(Location.class, locId);
 		this.disconnect();
 		return locFound;
 	}
@@ -91,7 +82,7 @@ public class LocationDao extends DBConnection implements LocationDaoI {
 	}
 	
 	@Override
-	public void removeEmpFromStore(int eId, int locId) {
+	public void removeEmpFromLoc(int eId, int locId) {
 		this.connect();
 		em.getTransaction().begin();
 		Employee empFound = em.find(Employee.class, eId);
@@ -105,7 +96,7 @@ public class LocationDao extends DBConnection implements LocationDaoI {
 	
 	
 	@Override
-	public void addEmpToStore(int eId, int locId) {
+	public void addEmpToLoc(int eId, int locId) {
 		this.connect();
 		em.getTransaction().begin();
 		Employee empFound = em.find(Employee.class, eId);
