@@ -132,6 +132,12 @@
               
             </div>    
             
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Enter the location id of the location where this cat is being held</label>
+              <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:errors path="locationId"/>
+            </div>
+            
             <button value="Add Cat" type="submit" class="btn btn-primary">Submit</button>    
               
               <!--   <div class="form-group">
@@ -147,7 +153,7 @@
                 
             <h3 class="main-body-text">${addCatLocError}</h3>
 		    <h3 class="main-body-text">${addCatSessionError}</h3>
-		   	<h3 class="main-body-text">${errorMessage}</h3>
+		   	<h3 class="main-body-text">${addCatError}</h3>
 		   	<h3 class="main-body-text">${successMessage}</h3>
                 
         </form:form>
@@ -166,8 +172,8 @@
           <button value="Delete Cat" type="submit" class="btn btn-primary">Submit</button>
           </div>
           
-          <h3 class="main-body-text">${removeCatSessionError}</h3>
-		  <h3 class="main-body-text">${removeCatError}</h3>
+          <h3 class="main-body-text">${RemoveCatError}</h3>
+		  <h3 class="main-body-text">${removeCatSessionError}</h3>
 		  <h3 class="main-body-text">${removeCatSuccess}</h3>
       </form:form>
   </div>

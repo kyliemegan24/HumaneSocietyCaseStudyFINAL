@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.humane.society.dbConnection.DBConnection;
+import com.humane.society.entity.Cat;
 import com.humane.society.entity.Dog;
 
 @Repository
@@ -32,19 +33,9 @@ public class DogDao extends DBConnection implements DogDaoI {
 	@Override
 	public Dog getDog(int dId) {
 		this.connect();
-//		Employee empFound = em.find(Employee.class, id);
-//		Query q = em.createQuery("select e from Employee e where e.id = :eID");
-		Query q = em.createNamedQuery("getDogById");
-		q.setParameter("dogId", dId);
-		List<Dog> dogs = q.getResultList();
-		Dog dogFound = null;
-		for (Dog d: dogs) {
-			dogFound = d;
-			break;
-		}
+		Dog dogFound = em.find(Dog.class, dId);
 		this.disconnect();
 		return dogFound;
-//		
 	}
 	
 	

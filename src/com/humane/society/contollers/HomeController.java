@@ -127,7 +127,7 @@ public class HomeController {
 				} else {
 					int eId = emp.getEId();
 					empService.addEmpService(emp);
-					locService.addEmpToLocService(eId, locId);
+					// locService.addEmpToLocService(eId, locId);
 					model.addAttribute("successMessage", "Employee added to the database successfully!");
 					System.out.println("added to db successfully");
 				}
@@ -153,7 +153,7 @@ public class HomeController {
 				model.addAttribute("salary", emp.getSalary() + ", ");
 				model.addAttribute("position", emp.getPosition() + ", ");
 				model.addAttribute("locationId", emp.getLocationId() + ", ");
-				model.addAttribute("password", emp.getPassword() + ", ");
+				model.addAttribute("password", emp.getPassword() + " ");
 			}
 			return "Employees";
 		}
@@ -186,7 +186,7 @@ public class HomeController {
 				return "Employees";
 			} else {
 				int locId = emp.getLocationId();
-				locService.removeEmpFromLocService(eId, locId);
+				// locService.removeEmpFromLocService(eId, locId);
 				empService.removeEmpService(eId);
 				model.addAttribute("removeEmpSuccess", "Employee removed from database sucessfully!");
 			}
@@ -228,7 +228,7 @@ public class HomeController {
 					} else {
 						model.addAttribute("locId", loc.getLocId() + ", ");
 						model.addAttribute("name", loc.getName() + ", ");
-						model.addAttribute("address", loc.getAddress() + ", ");
+						model.addAttribute("address", loc.getAddress() + " ");
 						
 					}
 					return "Locations";
@@ -252,7 +252,7 @@ public class HomeController {
 				}
 				
 				@PostMapping("/removeLocation")
-				public String removeStore(@ModelAttribute("store") Location loc, @RequestParam("locId") int locId, Model model, HttpSession session) {
+				public String removeStore(@ModelAttribute("location") Location loc, @RequestParam("locId") int locId, Model model, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
 					if (locService.getLocService(locId)==null) {
 						model.addAttribute("removeLocationError", "Please enter the ID of an existing location");
@@ -271,23 +271,28 @@ public class HomeController {
 				//Cat CRUD methods 
 				
 				@PostMapping("/addCat")
-				public String addNewCat(@ModelAttribute("Cat") Cat cat, Model model, BindingResult result, HttpSession session) {
+				public String addNewCat(@ModelAttribute("cat") Cat cat, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
-					int cId = cat.getCId();
-					Cat loc = catService.getCatService(cId);
 					if (result.hasErrors()) {
-						model.addAttribute("addCatError", "There was an error with an input field, please try again");
+						model.addAttribute("errorMessage", "Error, please try again");
 						return "Cats";
 					} else if (loggedIn==null) {
-						model.addAttribute("addCatSessionError", "You must be logged in to add a cat to the database");
+						model.addAttribute("addEmpSessionError", "Please log in to complete this action");
 						return "Cats";
-					} else if (loc==null) {
-						model.addAttribute("addCatLocError", "The location ID must correspond with an existing location");
-						return "Cats";
+					} else {
+						int locId = cat.getLocationId();
+						Location location = locService.getLocService(locId);
+						if (location==null) {
+							model.addAttribute("Loc", "Please ensure that the location ID matches the ID of an existing store");
+							return "Cats";
+						} else {
+							int cId = cat.getCId();
+							catService.addCatService(cat);
+							// locService.addCatToLocService(cId, locId);
+							model.addAttribute("successMessage", "Cat added to the database successfully!");
+							System.out.println("Cat added to database successfully");
+						}
 					}
-					catService.addCatService(cat);
-					model.addAttribute("addCatSuccess", "cat added to the database successfully!");
-					System.out.println("added to db successfully");
 					return "Cats";
 				}
 				
@@ -302,12 +307,12 @@ public class HomeController {
 						return "Cats";
 					} else {
 						model.addAttribute("cId", cat.getCId() + ", ");
-						model.addAttribute("model", cat.getName() + ", ");
+						model.addAttribute("name", cat.getName() + ", ");
 						model.addAttribute("age", cat.getAge() + ", ");
 						model.addAttribute("breed", cat.getBreed() + ", ");
 						model.addAttribute("upToDateShots", cat.isUpToDateShots() + ", ");
 						model.addAttribute("gender", cat.getGender() + ", ");
-						model.addAttribute("locationId", cat.getLocationId() + ", ");
+						model.addAttribute("locationId", cat.getLocationId() + " ");
 					}
 					return "Cats";
 				}
@@ -323,7 +328,7 @@ public class HomeController {
 						return "Cats";
 					} else {
 						catService.updateCatService(cat);
-						model.addAttribute("updateCatSuccess", "Vehicle updated successfully!");
+						model.addAttribute("updateCatSuccess", "Cat updated successfully!");
 						System.out.println("updated successfully");
 					}
 					
@@ -340,7 +345,7 @@ public class HomeController {
 						return "Cats";
 					} else {
 						catService.removeCatService(cId);
-						model.addAttribute("removeCatSuccess", "cat removed from database");
+						model.addAttribute("removeCatSuccess", "Cat removed from database");
 					}
 					return "Cats";
 				}
@@ -387,7 +392,7 @@ public class HomeController {
 						model.addAttribute("breed", Dog.getBreed() + ", ");
 						model.addAttribute("upToDateShots", Dog.isUpToDateShots() + ", ");
 						model.addAttribute("gender", Dog.getGender() + ", ");
-						model.addAttribute("locationId", Dog.getLocationId() + ", ");
+						model.addAttribute("locationId", Dog.getLocationId() + " ");
 					}
 					return "Dogs";
 				}

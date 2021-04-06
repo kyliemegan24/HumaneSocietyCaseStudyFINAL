@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.humane.society.dbConnection.DBConnection;
 import com.humane.society.entity.Cat;
+import com.humane.society.entity.Employee;
 
 @Repository
 public class CatDao extends DBConnection implements CatDaoI {
@@ -32,19 +33,9 @@ public class CatDao extends DBConnection implements CatDaoI {
 	@Override
 	public Cat getCat(int cId) {
 		this.connect();
-//		Employee empFound = em.find(Employee.class, cId);
-//		Query q = em.createQuery("select e from Employee e where e.cId = :eID");
-		Query q = em.createNamedQuery("getCatById");
-		q.setParameter("catId", cId);
-		List<Cat> cats = q.getResultList();
-		Cat catFound = null;
-		for (Cat c: cats) {
-			catFound = c;
-			break;
-		}
+		Cat catFound = em.find(Cat.class, cId);
 		this.disconnect();
 		return catFound;
-//		
 	}
 	
 	

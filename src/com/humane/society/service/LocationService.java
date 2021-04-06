@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.humane.society.dao.LocationDao;
+import com.humane.society.entity.Cat;
 import com.humane.society.entity.Employee;
 import com.humane.society.entity.Location;
 
@@ -40,17 +41,30 @@ private LocationDao locL = new LocationDao();
 		locL.removeLoc(locId);
 	}
 	
-	public void addEmpToLocService(int eId, int locId) {
-		locL.addEmpToLoc(eId, locId);
-	}
-	
-	public void removeEmpFromLocService(int eId, int locId) {
-		locL.removeEmpFromLoc(eId, locId);
-	}
-	
-	public List<Employee> viewAllEmpService(int locId) {
-		return locL.viewAllEmp(locId);
-	}
+//	public void addEmpToLocService(int eId, int locId) {
+//		locL.addEmpToLoc(eId, locId);
+//	}
+//	
+//	public void removeEmpFromLocService(int eId, int locId) {
+//		locL.removeEmpFromLoc(eId, locId);
+//	}
+//	
+//	public List<Employee> viewAllEmpService(int locId) {
+//		return locL.viewAllEmp(locId);
+//	}
+//	
+//	public void addCatToLocService(int cId, int locId) {
+//		locL.addCatToLoc(cId, locId);
+//	}
+//	
+//	public void removeCatFromLocService(int cId, int locId) {
+//		locL.removeEmpFromLoc(cId, locId);
+//	}
+//	
+//	public List<Cat> viewAllCatService(int locId) {
+//		return locL.viewAllCat(locId);
+//	}
+		
 	
 	public boolean validateLocService(int locId, String name, String address) {
 		Location locFound = locL.getLoc(locId);
