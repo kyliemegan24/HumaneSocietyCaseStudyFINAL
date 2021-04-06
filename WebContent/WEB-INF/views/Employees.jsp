@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%><%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,17 +60,21 @@
   </nav>
     <br>
   
-    <!--Form for employee by id-->
+    <!--Form for getting employee by id-->
     <div class="mail">
-        <form>
+        <form:form action="./getEmp" method="post" modelAttribute="employee">
             <div class="form-group">
             <h1>Find Employee by Id</h1>
             <label for="exampleFormControlInput1">Enter Employee Id</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+            <form:input path="eId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            
             <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" value="Get Employee">Submit</button>
             </div>
-        </form>
+            <h3 class="main-body-text">${getEmpSessionError}</h3>
+		    <h3 class="main-body-text">${getEmpError}</h3>
+		    <h5 class="main-body-text">${eId}${firstName}${lastName}${salary}${position}${locationId}${password}</h5>
+        </form:form>
     </div>
 
     <br>
@@ -76,110 +82,132 @@
 
      <!--Form for adding a new employee -->
      <div class="mail">
-        <form>
+        <form:form action="./addEmp" method="post" modelAttribute="employee">
             
             <div class="form-group">
              <h1>Add New Employee to Records</h1>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+              <form:input path="eId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:errors path="eId"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee's First Name</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Abby">
+              <form:input path="firstName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Abby"/>
+              <form:errors path="firstName"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee Last Name</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Baka">
+              <form:input path="lastName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Baka"/>
+              <form:errors path="lastName"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee Salary (USD)</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="100000">
+              <form:input path="salary" type="email" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
+              <form:errors path="salary"/>
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Employee Position</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant">
+                <form:input path="position" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant"/>
+                <form:errors path="position"/>
             </div>
               
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Location Id</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1">
+                <form:input path="locationId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+                <form:errors path="locationId"/>
             </div>
               
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Employee Password</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!">
+                <form:input path="password" type="email" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!"/>
+                <form:errors path="password"/>
                     
                 <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" value="Add Employee">Submit</button>
             </div>
-           
-        </form>
+           	<h3 class="main-body-text">${addEmpLocError}</h3>
+		    <h3 class="main-body-text">${addEmpSessionError}</h3>
+		   	<h3 class="main-body-text">${errorMessage}</h3>
+		   	<h3 class="main-body-text">${successMessage}</h3>
+        </form:form>
         </div>
       <br>
 
     <!-- form to delete employee-->
     <div class="mail">
-      <form>
+      <form:form action="./removeEmp" method="post" modelAttribute="employee">
           <div class="form-group">
           <h1>Delete Employee by Id</h1>
           <label for="exampleFormControlInput1">Enter Employee Id</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+          <form:input path="eId" type="email" class="form-control" id="exampleFormControlInput1" placeholder=1234/>
+          <form:errors path="eId"/>
           <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button value="Remove Employee" type="submit" class="btn btn-primary">Submit</button>
           </div>
-      </form>
+          
+          <h3 class="main-body-text">${removeEmpSessionError}</h3>
+		  <h3 class="main-body-text">${removeEmpError}</h3>
+		  <h3 class="main-body-text">${removeEmpSuccess}</h3>
+      </form:form>
   </div>
   <br>
 
   <!-- Form to update employee -->
 
   <div class="mail">
-    <form>
+    <form:form action="./updateEmp" method="post" modelAttribute="employee">
             
         <div class="form-group">
          <h1>Update Employee Information</h1>
           <label for="exampleFormControlInput1">Enter a New Id</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+          <form:input path="eId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:errors path="eId"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Employee's First Name</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Abby">
+          <form:input path="firstName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Abby"/>
+          <form:errors path="firstName"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Employee Last Name</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Baka">
+          <form:input path="lastName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Baka"/>
+          <form:errors path="lastName"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Employee Salary (USD)</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="100000">
+          <form:input path="salary" type="email" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
+          <form:errors path="salary"/>
         </div>
 
         <div class="form-group">
             <label for="exampleFormControlInput1">Enter Employee Position</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant">
+            <form:input path="position" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant"/>
+            <form:errors path="position"/>
         </div>
           
         <div class="form-group">
             <label for="exampleFormControlInput1">Enter Location Id</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1">
+            <form:input path="locationId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+            <form:errors path="locationId"/>
         </div>
           
         <div class="form-group">
             <label for="exampleFormControlInput1">Enter Employee Password</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!">
+            <form:input path="password" type="email" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!"/>
+            <form:errors path="password"/>
                 
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
        
-    </form>
+    </form:form>
     </div>
 
     <!--Bootstrap sticky footer-->
