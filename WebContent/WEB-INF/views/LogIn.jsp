@@ -59,15 +59,17 @@
 
     <div class="mail">
         <h2>Log In</h2>
-        <form name="form1" action="#"> 
+        <form action="./LogIn" method="post" name="form1"> 
         <ul>
-        <li><input placeholder="email" type='text' name='text1'/></li>
+        <li><input placeholder="Employee Id" type='text' name='eId'/></li>
         <br>
-        <li><input placeholder="password" type='text' name='text1'/></li>
+        <li><input placeholder="password" type='text' name='password'/></li>
         <li>&nbsp;</li>
-        <li class="submit"><input type="submit" name="submit" value="Submit" onclick="ValidateEmail(document.form1.text1)"/></li>
+        <li class="submit"><input type="submit" name="submit" value="Log In"/></li>
         <li>&nbsp;</li>
         </ul>
+        <h3 class="main-body-text">${loginFailedMessage}</h3>
+		<h3 class="main-body-text">${loginSuccessMessage} ${currentUser.firstName}</h3>
         </form>
 
     </div>

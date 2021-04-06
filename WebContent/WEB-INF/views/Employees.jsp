@@ -66,8 +66,8 @@
             <div class="form-group">
             <h1>Find Employee by Id</h1>
             <label for="exampleFormControlInput1">Enter Employee Id</label>
-            <form:input path="eId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
-            
+            <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:errors path="eId"/>
             <br>
             <button type="submit" class="btn btn-primary" value="Get Employee">Submit</button>
             </div>
@@ -87,43 +87,43 @@
             <div class="form-group">
              <h1>Add New Employee to Records</h1>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <form:input path="eId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
               <form:errors path="eId"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee's First Name</label>
-              <form:input path="firstName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Abby"/>
+              <form:input path="firstName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Abby"/>
               <form:errors path="firstName"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee Last Name</label>
-              <form:input path="lastName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Baka"/>
+              <form:input path="lastName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Baka"/>
               <form:errors path="lastName"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee Salary (USD)</label>
-              <form:input path="salary" type="email" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
+              <form:input path="salary" type="text" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
               <form:errors path="salary"/>
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Employee Position</label>
-                <form:input path="position" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant"/>
+                <form:input path="position" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant"/>
                 <form:errors path="position"/>
             </div>
               
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Location Id</label>
-                <form:input path="locationId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+                <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
                 <form:errors path="locationId"/>
             </div>
               
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Employee Password</label>
-                <form:input path="password" type="email" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!"/>
+                <form:input path="password" type="text" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!"/>
                 <form:errors path="password"/>
                     
                 <br>
@@ -143,7 +143,7 @@
           <div class="form-group">
           <h1>Delete Employee by Id</h1>
           <label for="exampleFormControlInput1">Enter Employee Id</label>
-          <form:input path="eId" type="email" class="form-control" id="exampleFormControlInput1" placeholder=1234/>
+          <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="eId"/>
           <br>
           <button value="Remove Employee" type="submit" class="btn btn-primary">Submit</button>
@@ -164,49 +164,51 @@
         <div class="form-group">
          <h1>Update Employee Information</h1>
           <label for="exampleFormControlInput1">Enter a New Id</label>
-          <form:input path="eId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="eId"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Employee's First Name</label>
-          <form:input path="firstName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Abby"/>
+          <form:input path="firstName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Abby"/>
           <form:errors path="firstName"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Employee Last Name</label>
-          <form:input path="lastName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Baka"/>
+          <form:input path="lastName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Baka"/>
           <form:errors path="lastName"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Employee Salary (USD)</label>
-          <form:input path="salary" type="email" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
+          <form:input path="salary" type="text" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
           <form:errors path="salary"/>
         </div>
 
         <div class="form-group">
             <label for="exampleFormControlInput1">Enter Employee Position</label>
-            <form:input path="position" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant"/>
+            <form:input path="position" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant"/>
             <form:errors path="position"/>
         </div>
           
         <div class="form-group">
             <label for="exampleFormControlInput1">Enter Location Id</label>
-            <form:input path="locationId" type="email" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+            <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
             <form:errors path="locationId"/>
         </div>
           
         <div class="form-group">
             <label for="exampleFormControlInput1">Enter Employee Password</label>
-            <form:input path="password" type="email" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!"/>
+            <form:input path="password" type="text" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!"/>
             <form:errors path="password"/>
                 
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-       
+       	  <h3 class="main-body-text">${updateEmpSessionError}</h3>
+		  <h3 class="main-body-text">${updateEmpError}</h3>
+		  <h3 class="main-body-text">${updateEmpSuccess}</h3>
     </form:form>
     </div>
 

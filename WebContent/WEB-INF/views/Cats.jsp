@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,15 +62,19 @@
   
     <!--Form for finding cat by id-->
     <div class="mail">
-        <form>
+        <form:form action="./getCat" method="post" modelAttribute="cat">
             <div class="form-group">
             <h1>Find Cat by Id</h1>
             <label for="exampleFormControlInput1">Enter Cat Id</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+            <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:errors path="cId"/>
             <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button value="Get Cat" type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </form>
+            <h3 class="main-body-text">${getCatSessionError}</h3>
+		    <h3 class="main-body-text">${getCatError}</h3>
+		    <h5 class="main-body-text">${cId}${name}${age}${breed}${upToDateShots}${gender}${locationId}</h5>
+        </form:form>
     </div>
 
     <br>
@@ -77,40 +82,59 @@
 
      <!--Form for adding new cat-->
      <div class="mail">
-        <form>
+        <form:form action="./addCat" method="post" modelAttribute="cat">
             
             <div class="form-group">
              <h1>Add New Cat to Records</h1>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+              <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:errors path="cId"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Name</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Hila">
+              <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Hila"/>
+              <form:errors path="name"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Age (in years)</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="3">
+              <form:input path="age" type="text" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+              <form:errors path="age"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Breed</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="orange tabby">
+              <form:input path="breed" type="text" class="form-control" id="exampleFormControlInput1" placeholder="orange tabby"/>
+              <form:errors path="breed"/>
             </div>
               
               <div class="form-group">
+              <label for="exampleFormControlInput1">Is this cat up to date on shots? (enter 1 for YES, or 2 for NO)</label>
+              <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:errors path="upToDateShots"/>
+            </div>
+            
+           <!--    <div class="form-group">
                 <label for="inputState">Is this cat up to date on shots? (1 for YES, 2 for NO)</label>
                 <select id="inputState" class="form-control">
                   <option selected>Choose...</option>
                   <option>1</option>
                   <option>2</option>
                 </select>
-              </div>
+              </div> -->
               
               
-                <div class="form-group">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Enter Cat Gender (1 for MALE, or 2 for FEMALE)</label>
+              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:errors path="gender"/>
+              
+            </div>    
+            
+            <button value="Add Cat" type="submit" class="btn btn-primary">Submit</button>    
+              
+              <!--   <div class="form-group">
                   <label for="inputState">Enter Cat Gender (1 for MALE, 2 for FEMALE)</label>
                   <select id="inputState" class="form-control">
                     <option selected>Choose...</option>
@@ -119,50 +143,64 @@
                   </select>
                   <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                </div> -->
                 
-        </form>
+            <h3 class="main-body-text">${addCatLocError}</h3>
+		    <h3 class="main-body-text">${addCatSessionError}</h3>
+		   	<h3 class="main-body-text">${errorMessage}</h3>
+		   	<h3 class="main-body-text">${successMessage}</h3>
+                
+        </form:form>
         </div>
       <br>
 
     <!-- form to delete cat-->
     <div class="mail">
-      <form>
+      <form:form action="./removeCat" method="post" modelAttribute="cat">
           <div class="form-group">
           <h1>Delete Cat by Id</h1>
           <label for="exampleFormControlInput1">Enter Cat Id</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+          <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:errors path="cId"/>
           <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button value="Delete Cat" type="submit" class="btn btn-primary">Submit</button>
           </div>
-      </form>
+          
+          <h3 class="main-body-text">${removeCatSessionError}</h3>
+		  <h3 class="main-body-text">${removeCatError}</h3>
+		  <h3 class="main-body-text">${removeCatSuccess}</h3>
+      </form:form>
   </div>
   <br>
 
   <!-- Form to update cat -->
 
   <div class="mail">
-    <form>
+    <form:form action="./updateCat" method="post" modelAttribute="cat">
         
         <div class="form-group">
          <h1>Update Existing Cat</h1>
           <label for="exampleFormControlInput1">Enter a New Id</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+          <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:errors path="cId"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Cat Name</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Hila">
+          <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Hila"/>
+          <form:errors path="name"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Cat Age (in years)</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="3">
+          <form:input path="age" type="text" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+          <form:errors path="age"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Cat Breed</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="orange tabby">
+          <form:input path="breed" type="text" class="form-control" id="exampleFormControlInput1" placeholder="orange tabby"/>
+          <form:errors path="breed"/>
         </div>
           
           <div class="form-group">
@@ -186,7 +224,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             
-    </form>
+    </form:form>
     </div>
 
     <!--Bootstrap sticky footer-->

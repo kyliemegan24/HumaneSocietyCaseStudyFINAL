@@ -31,16 +31,7 @@ public class EmployeeDao extends DBConnection implements EmployeeDaoI {
 	@Override
 	public Employee getEmp(int eId) {
 		this.connect();
-//		Employee empFound = em.find(Employee.class, id);
-//		Query q = em.createQuery("select e from Employee e where e.id = :eID");
-		Query q = em.createNamedQuery("getEmpById");
-		q.setParameter("eId", eId);
-		List<Employee> emps = q.getResultList();
-		Employee empFound = null;
-		for (Employee e: emps) {
-			empFound = e;
-			break;
-		}
+		Employee empFound = em.find(Employee.class, eId);
 		this.disconnect();
 		return empFound;
 	}
