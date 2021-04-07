@@ -82,83 +82,36 @@ public class LocationDao extends DBConnection implements LocationDaoI {
 		return locs;
 	}
 	
-//	@Override
-//	public void removeEmpFromLoc(int eId, int locId) {
-//		this.connect();
-//		em.getTransaction().begin();
-//		Employee empFound = em.find(Employee.class, eId);
-//		Location locFound =em.find(Location.class, locId);
-//		List<Employee> emps = locFound.getEmployeeList();
-//		emps.remove(empFound);
-//		em.getTransaction().commit();
-//		this.disconnect();
-//		
-//	}
-//	
-//	@Override
-//	public void addEmpToLoc(int eId, int locId) {
-//		this.connect();
-//		em.getTransaction().begin();
-//		Employee empFound = em.find(Employee.class, eId);
-//		Location locFound = em.find(Location.class, locId);
-//		List<Employee> emps = locFound.getEmployeeList();
-//		emps.add(empFound);
-//		em.getTransaction().commit();
-//		this.disconnect();
-//		
-//	}
-//
-//	@Override
-//	public List<Employee> viewAllEmp(int locId) {
-//		// TODO Auto-generated method stub
-//		return this.getLoc(locId).getEmployeeList();
-//	}
-//
-//	
-//	
-//	@Override
-//	public void addCatToLoc(int cId, int locId) {
-//		this.connect();
-//		em.getTransaction().begin();
-//		Cat catFound = em.find(Cat.class, cId);
-//		Location locFound = em.find(Location.class, locId);
-//		List<Cat> cats = locFound.getCatList();
-//		cats.add(catFound);
-//		em.getTransaction().commit();
-//		this.disconnect();
-//		
-//	}
-//
-//	@Override
-//	public List<Cat> viewAllCats(int locId) {
-//		// TODO Auto-generated method stub
-//		return this.getLoc(locId).getCatList();
-//	}
-//	
-//	
-//	@Override
-//	public void removeCatFromLoc(int cId, int locId) {
-//		this.connect();
-//		em.getTransaction().begin();
-//		Cat catFound = em.find(Cat.class, cId);
-//		Location locFound =em.find(Location.class, locId);
-//		List<Cat> cats = locFound.getCatList();
-//		cats.remove(catFound);
-//		em.getTransaction().commit();
-//		this.disconnect();
-//		
-//	}
-//	
-//	
-//	
-//	public List<Cat> viewAllCat(int locId) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	public void addCatToLoc(int cId, int locId) {
-//		// TODO Auto-generated method stub
-//		
-//	}
+	@Override
+	public void removeEmpfromLoc(int eId, int locId) {
+		this.connect();
+		em.getTransaction().begin();
+		Employee empFound = em.find(Employee.class, eId);
+		Location locFound =em.find(Location.class, locId);
+		List<Employee> emps = locFound.getEmployeeList();
+		emps.remove(empFound);
+		em.getTransaction().commit();
+		this.disconnect();
+		
+	}
+	
+	@Override
+	public void addEmptoLoc(int eId, int locId) {
+		this.connect();
+		em.getTransaction().begin();
+		Employee empFound = em.find(Employee.class, eId);
+		Location locFound = em.find(Location.class, locId);
+		List<Employee> emps = locFound.getEmployeeList();
+		emps.add(empFound);
+		em.getTransaction().commit();
+		this.disconnect();
+		
+	}
+
+	@Override
+	public List<Employee> viewAllEmp(int locId) {
+		// TODO Auto-generated method stub
+		return this.getLoc(locId).getEmployeeList();
+	}
 
 }

@@ -45,7 +45,7 @@
           <a class="nav-link" href="Employees.html">Employees</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Location.html">Locations</a>
+          <a class="nav-link" href="Locations.html">Locations</a>
         </li>
           <li class="nav-item">
             <a class="nav-link" href="LogIn.html">Log In<span class="sr-only">(current)</span></a>

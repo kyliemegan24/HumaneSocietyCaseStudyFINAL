@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%><%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,15 +62,19 @@
   
     <!--Form for finding Dog by id-->
     <div class="mail">
-        <form>
+        <form:form action="./getDog" method="post" modelAttribute="dog">
             <div class="form-group">
             <h1>Find Dog by Id</h1>
             <label for="exampleFormControlInput1">Enter Dog Id</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+            <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:errors path="dId"/>
             <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button value="Get Dog" type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </form>
+            <h3 class="main-body-text">${getDogSessionError}</h3>
+		    <h3 class="main-body-text">${getDogError}</h3>
+		    <h5 class="main-body-text">${dId}${name}${age}${breed}${upToDateShots}${gender}${locationId}</h5>
+        </form:form>
     </div>
 
     <br>
@@ -76,41 +82,66 @@
 
      <!--Form for adding Dog -->
      <div class="mail">
-        <form>
+        <form:form action="./addDog" method="post" modelAttribute="dog">
             
             <div class="form-group">
-             <h1>Add New Dog to Records</h1>
+             <h1>Add New dog to Records</h1>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+              <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:errors path="dId"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Dog Name</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Hila">
+              <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Lizzie"/>
+              <form:errors path="name"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Dog Age (in years)</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="3">
+              <form:input path="age" type="text" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+              <form:errors path="age"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Dog Breed</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="orange tabby">
+              <form:input path="breed" type="text" class="form-control" id="exampleFormControlInput1" placeholder="bichon frise"/>
+              <form:errors path="breed"/>
             </div>
               
-              <div class="form-group">
-                <label for="inputState">Is this Dog up to date on shots? (1 for YES, 2 for NO)</label>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Is this dog up to date on shots? (enter 1 for YES, or 2 for NO)</label>
+              <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:errors path="upToDateShots"/>
+            </div>
+            
+           <!--    <div class="form-group">
+                <label for="inputState">Is this cat up to date on shots? (1 for YES, 2 for NO)</label>
                 <select id="inputState" class="form-control">
                   <option selected>Choose...</option>
                   <option>1</option>
                   <option>2</option>
                 </select>
-              </div>
+              </div> -->
               
               
-                <div class="form-group">
-                  <label for="inputState">Enter Dog Gender (1 for MALE, 2 for FEMALE)</label>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Enter Dog Gender (1 for MALE, or 2 for FEMALE)</label>
+              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:errors path="gender"/>
+              
+            </div>    
+            
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Enter the location id of the location where this dog is being held</label>
+              <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:errors path="locationId"/>
+            </div>
+            
+            <button value="Add Dog" type="submit" class="btn btn-primary">Submit</button>    
+              
+              <!--   <div class="form-group">
+                  <label for="inputState">Enter Cat Gender (1 for MALE, 2 for FEMALE)</label>
                   <select id="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option>1</option>
@@ -118,74 +149,99 @@
                   </select>
                   <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                </div> -->
                 
-        </form>
+            <h3 class="main-body-text">${addDogLocError}</h3>
+		    <h3 class="main-body-text">${addDogSessionError}</h3>
+		   	<h3 class="main-body-text">${addDogError}</h3>
+		   	<h3 class="main-body-text">${addDogSuccess}</h3>
+                
+        </form:form>
         </div>
       <br>
 
     <!-- form to delete Dog-->
-    <div class="mail">
-      <form>
+    
+   <div class="mail">
+      <form:form action="./removeDog" method="post" modelAttribute="dog">
           <div class="form-group">
           <h1>Delete Dog by Id</h1>
           <label for="exampleFormControlInput1">Enter Dog Id</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+          <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:errors path="dId"/>
           <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button value="Delete Dog" type="submit" class="btn btn-primary">Submit</button>
           </div>
-      </form>
+          
+          <h3 class="main-body-text">${RemoveDogError}</h3>
+		  <h3 class="main-body-text">${removeDogSessionError}</h3>
+		  <h3 class="main-body-text">${removeDogSuccess}</h3>
+      </form:form>
   </div>
   <br>
 
   <!-- Form to update Dog -->
 
   <div class="mail">
-    <form>
+    <form:form action="./updateDog" method="post" modelAttribute="dog">
         
         <div class="form-group">
          <h1>Update Existing Dog</h1>
           <label for="exampleFormControlInput1">Enter a New Id</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+          <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:errors path="dId"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Dog Name</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Hila">
+          <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Lizzie"/>
+          <form:errors path="name"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Dog Age (in years)</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="3">
+          <form:input path="age" type="text" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+          <form:errors path="age"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Dog Breed</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="orange tabby">
+          <form:input path="breed" type="text" class="form-control" id="exampleFormControlInput1" placeholder="orange tabby"/>
+          <form:errors path="breed"/>
         </div>
-          
-          <div class="form-group">
-            <label for="inputState">Is this Dog up to date on shots? (1 for YES, 2 for NO)</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>1</option>
-              <option>2</option>
-            </select>
-          </div>
-          
-          
-            <div class="form-group">
-              <label for="inputState">Enter Dog Gender (1 for MALE, 2 for FEMALE)</label>
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>1</option>
-                <option>2</option>
-              </select>
-              <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+        
+         <div class="form-group">
+             <label for="exampleFormControlInput1">Is this dog up to date on shots? (enter 1 for YES, or 2 for NO)</label>
+             <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+             <form:errors path="upToDateShots"/>
+        </div>
             
-    </form>
+          
+ 
+            
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Enter Dog Gender (1 for MALE, or 2 for FEMALE)</label>
+              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:errors path="gender"/>
+              
+            </div>   
+            
+            
+             <div class="form-group">
+              <label for="exampleFormControlInput1">Enter the location id of the location where this dog is being held</label>
+              <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:errors path="locationId"/>
+            </div> 
+            
+            <button value="Update Dog" type="submit" class="btn btn-primary">Submit</button>    
+              
+           
+                
+            <h3 class="main-body-text">${updateDogLocError}</h3>
+		    <h3 class="main-body-text">${updateDogSessionError}</h3>
+		   	<h3 class="main-body-text">${updateDogError}</h3>
+		   	<h3 class="main-body-text">${updateDogSuccess}</h3>
+    </form:form>
     </div>
 
     <!--Bootstrap sticky footer-->

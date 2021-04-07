@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%><%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,15 +63,19 @@
   
     <!--Form for find location by id-->
     <div class="mail">
-        <form>
+        <form:form action="./getLocation" method="post" modelAttribute="location">
             <div class="form-group">
             <h1>Find Location by Id</h1>
             <label for="exampleFormControlInput1">Enter Location Id</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+            <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:errors path="locId"/>
             <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button value="Get Location" type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </form>
+            <h3 class="main-body-text">${getLocSessionError}</h3>
+		    <h3 class="main-body-text">${getLocError}</h3>
+		    <h5 class="main-body-text">${locId}${name}${address}</h5>
+        </form:form>
     </div>
 
     <br>
@@ -76,67 +83,118 @@
 
      <!--Form for adding a new location -->
      <div class="mail">
-        <form>
+        <form:form action="./addLocation" method="post" modelAttribute="location">
             
             <div class="form-group">
              <h1>Add New Location</h1>
               <label for="exampleFormControlInput1">Enter a New Location Id</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+              <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:errors path="locId"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Location Name</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Highland Park Humane Society">
+              <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Highland Park Humane Society"/>
+              <form:errors path="name"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Location Address</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1111 Marc Street, Saint Paul, MN 55105">
+              <form:input path="address" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1111 Marc Street, Saint Paul, MN 55105"/>
+              <form:errors path="address"/>
               <br>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button value="Add New Location" type="submit" class="btn btn-primary">Submit</button>
+              
+            <h3 class="main-body-text">${addLocationError}</h3>
+		    <h3 class="main-body-text">${addLocationSessionError}</h3>
+		   	<h3 class="main-body-text">${addLocationSuccess}</h3>
+		   	
             </div>
-        </form>
+        </form:form>
         </div>
       <br>
 
     <!-- form to delete location-->
     <div class="mail">
-      <form>
+      <form:form action="./removeLocation" method="post" modelAttribute="location">
           <div class="form-group">
           <h1>Delete Location by Id</h1>
           <label for="exampleFormControlInput1">Enter Location Id</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+          <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:errors path="locId"/>
           <br>
           <button type="submit" class="btn btn-primary">Submit</button>
+          
+          <h3 class="main-body-text">${removeLocationError}</h3>
+		  <h3 class="main-body-text">${removeLocSessionError}</h3>
+		  <h3 class="main-body-text">${removeLocSuccess}</h3>
+		   	
           </div>
-      </form>
+      </form:form>
   </div>
   <br>
 
   <!-- Form to update location details -->
 
   <div class="mail">
-    <form>
+    <form:form action="./updateLocation" method="post" modelAttribute="location">
             
         <div class="form-group">
          <h1>Update Location Details</h1>
           <label for="exampleFormControlInput1">Enter a New Id</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+          <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:errors path="locId"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Location Name</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Highland Park Humane Society">
+          <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Highland Park Humane Society"/>
+          <form:errors path="name"/>
         </div>
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Location Address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1111 Marc Street, Saint Paul, MN 55105">
+          <form:input path="address" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1111 Marc Street, Saint Paul, MN 55105"/>
+          <form:errors path="address"/>
           <br>
           <button type="submit" class="btn btn-primary">Submit</button>
+          
+           <h3 class="main-body-text">${updatetLocError}</h3>
+		    <h3 class="main-body-text">${updateLocSessionError}</h3>
+		   	<h3 class="main-body-text">${updateLocSuccess}</h3>
         </div>
         
-    </form>
+    </form:form>
+    </div>
+    
+    <!-- form for looking up employees by location -->
+    
+    <div class="mail">
+    <form:form action="./getEmpList" method="post" modelAttribute="location">
+            
+        <div class="form-group">
+         <h1>See Employees by Location Id</h1>
+          <label for="exampleFormControlInput1">Enter a Location Id</label>
+          <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:errors path="locId"/>
+        </div>
+          
+        <div>
+          <button value="View Employees" type="submit" class="btn btn-primary">Submit</button>
+          
+           <h3 class="main-body-text">${empListLocError}</h3>
+		   
+		   	<h3 class="main-body-text">${empListSessionError}</h3>
+		   	<div class="main-body-text">
+		   		<c:forEach items = "${empList}" var="emps">
+		   			<h5><c:out value="${emps}"/></h5>
+		   			</c:forEach>
+		   		
+		   	
+		   	</div>
+        </div>
+        
+    </form:form>
     </div>
 
     <!--Bootstrap sticky footer-->

@@ -38,13 +38,13 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String showIndexPage() {
-		
+		System.out.println("hello hello");
 		return "index";
 	}
 	
 	@GetMapping("/index")
 	public String showHomePage() {
-		
+		System.out.println("hello hi");
 		return "index";
 	}
 	
@@ -127,7 +127,7 @@ public class HomeController {
 				} else {
 					int eId = emp.getEId();
 					empService.addEmpService(emp);
-					// locService.addEmpToLocService(eId, locId);
+					locService.addEmpToLocService(eId, locId);
 					model.addAttribute("successMessage", "Employee added to the database successfully!");
 					System.out.println("added to db successfully");
 				}
@@ -186,7 +186,7 @@ public class HomeController {
 				return "Employees";
 			} else {
 				int locId = emp.getLocationId();
-				// locService.removeEmpFromLocService(eId, locId);
+				locService.removeEmpFromLocService(eId, locId);
 				empService.removeEmpService(eId);
 				model.addAttribute("removeEmpSuccess", "Employee removed from database sucessfully!");
 			}
@@ -210,7 +210,7 @@ public class HomeController {
 						return "Locations";
 					} else {
 						locService.addLocService(loc);
-						model.addAttribute("addStoreSuccess", "Store added to the database successfully!");
+						model.addAttribute("addLocationSuccess", "Store added to the database successfully!");
 						System.out.println("added to db successfully");
 					}
 					return "Locations";
@@ -266,6 +266,21 @@ public class HomeController {
 					return "Locations";
 				}
 				
+				
+				@PostMapping("/getEmpList")
+				public String getEmpList(@ModelAttribute("location") Location loc, @RequestParam("locId") int locId, Model model, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					if (locService.getLocService(locId)==null) {
+						model.addAttribute("empListLocError", "Please enter a valid location id");
+					} else if (loggedIn==null) {
+						model.addAttribute("empListSessionError", "You must be logged in to view");
+						return "Locations";
+					} else {
+						model.addAttribute("empList", locService.viewAllEmpService(locId));
+					}
+					
+					return "Locations";
+				}
 				
 				
 				//Cat CRUD methods 
@@ -356,43 +371,48 @@ public class HomeController {
 //			// Dog CRUD methods
 				
 				@PostMapping("/addDog")
-				public String addNewDog(@ModelAttribute("Dog") Dog dog, Model model, BindingResult result, HttpSession session) {
+				public String addNewDog(@ModelAttribute("dog") Dog dog, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
-					int dId = dog.getDId();
-					Dog loc = dogService.getDogService(dId);
 					if (result.hasErrors()) {
-						model.addAttribute("addDogError", "There was an error with an input field, please try again");
+						model.addAttribute("errorMessage", "Error, please try again");
 						return "Dogs";
 					} else if (loggedIn==null) {
-						model.addAttribute("addDogSessionError", "You must be logged in to add a dog to the database");
+						model.addAttribute("addDogSessionError", "Please log in to complete this action");
 						return "Dogs";
-					} else if (loc==null) {
-						model.addAttribute("addDogLocError", "The location ID must correspond with an existing location");
-						return "Dogs";
+					} else {
+						int locId = dog.getLocationId();
+						Location location = locService.getLocService(locId);
+						if (location==null) {
+							model.addAttribute("Loc", "Please ensure that the location ID matches the ID of an existing location");
+							return "Dogs";
+						} else {
+							int dId = dog.getDId();
+							dogService.addDogService(dog);
+							// locService.addCatToLocService(cId, locId);
+							model.addAttribute("addDogSuccess", "Dog added to the database successfully!");
+							System.out.println("Dog added to database successfully");
+						}
 					}
-					dogService.addDogService(dog);
-					model.addAttribute("addDogSuccess", "dog added to the database successfully!");
-					System.out.println("added to db successfully");
 					return "Dogs";
 				}
 				
 				@PostMapping("/getDog")
-				public String getDog(@ModelAttribute("Dog") Dog Dog, @RequestParam("dId") int dId, Model model, HttpSession session) {
+				public String getDog(@ModelAttribute("dog") Dog dog, @RequestParam("dId") int dId, Model model, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
-					Dog = dogService.getDogService(dId);
-					if (Dog==null) {
-						model.addAttribute("getCatError", "Please enter a valid Dog id");
+					dog = dogService.getDogService(dId);
+					if (dog==null) {
+						model.addAttribute("getCatError", "Please enter a valid dog id");
 					} else if (loggedIn==null) {
-						model.addAttribute("getCatSessionError", "You must be logged in to view a Dog in the database");
+						model.addAttribute("getDogSessionError", "You must be logged in to view a dog in the database");
 						return "Dogs";
 					} else {
-						model.addAttribute("cId", Dog.getDId() + ", ");
-						model.addAttribute("model", Dog.getName() + ", ");
-						model.addAttribute("age", Dog.getAge() + ", ");
-						model.addAttribute("breed", Dog.getBreed() + ", ");
-						model.addAttribute("upToDateShots", Dog.isUpToDateShots() + ", ");
-						model.addAttribute("gender", Dog.getGender() + ", ");
-						model.addAttribute("locationId", Dog.getLocationId() + " ");
+						model.addAttribute("dId", dog.getDId() + ", ");
+						model.addAttribute("name", dog.getName() + ", ");
+						model.addAttribute("age", dog.getAge() + ", ");
+						model.addAttribute("breed", dog.getBreed() + ", ");
+						model.addAttribute("upToDateShots", dog.isUpToDateShots() + ", ");
+						model.addAttribute("gender", dog.getGender() + ", ");
+						model.addAttribute("locationId", dog.getLocationId() + " ");
 					}
 					return "Dogs";
 				}
@@ -404,7 +424,7 @@ public class HomeController {
 						model.addAttribute("updateDogError", "Please try again, input field error");
 						return "Dogs";
 					} else if (loggedIn==null) {
-						model.addAttribute("updateCatSessionError", "You must be logged in to update a dog in the database");
+						model.addAttribute("updateDogSessionError", "You must be logged in to update a dog in the database");
 						return "Dogs";
 					} else {
 						dogService.updateDogService(dog);

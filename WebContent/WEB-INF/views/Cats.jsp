@@ -114,15 +114,6 @@
               <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="upToDateShots"/>
             </div>
-            
-           <!--    <div class="form-group">
-                <label for="inputState">Is this cat up to date on shots? (1 for YES, 2 for NO)</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>1</option>
-                  <option>2</option>
-                </select>
-              </div> -->
               
               
             <div class="form-group">
@@ -138,19 +129,15 @@
               <form:errors path="locationId"/>
             </div>
             
+             <%-- <div class="form-group">
+              <label for="exampleFormControlInput1">Enter image for cat</label>
+              <form:input path="catPicture" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:errors path="catPicture"/>
+            </div> --%>
+            
             <button value="Add Cat" type="submit" class="btn btn-primary">Submit</button>    
               
-              <!--   <div class="form-group">
-                  <label for="inputState">Enter Cat Gender (1 for MALE, 2 for FEMALE)</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                  <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </div> -->
-                
+              
             <h3 class="main-body-text">${addCatLocError}</h3>
 		    <h3 class="main-body-text">${addCatSessionError}</h3>
 		   	<h3 class="main-body-text">${addCatError}</h3>
@@ -215,47 +202,22 @@
              <form:errors path="upToDateShots"/>
         </div>
             
-          
-         <!--  <div class="form-group">
-            <label for="inputState">Is this cat up to date on shots? (1 for YES, 2 for NO)</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>1</option>
-              <option>2</option>
-            </select>
-          </div> -->
-          
-          
-           <!--  <div class="form-group">
-              <label for="inputState">Enter Cat Gender (1 for MALE, 2 for FEMALE)</label>
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>1</option>
-                <option>2</option>
-              </select>
-              <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </div> -->
-            
+
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Gender (1 for MALE, or 2 for FEMALE)</label>
               <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
               <form:errors path="gender"/>
+            </div>  
+            
+             <div class="form-group">
+              <label for="exampleFormControlInput1">Enter Cat Gender (1 for MALE, or 2 for FEMALE)</label>
+              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:errors path="gender"/>
+            </div>  
               
-            </div>    
             
             <button value="Update Cat" type="submit" class="btn btn-primary">Submit</button>    
               
-              <!--   <div class="form-group">
-                  <label for="inputState">Enter Cat Gender (1 for MALE, 2 for FEMALE)</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                  <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </div> -->
                 
             <h3 class="main-body-text">${updateCatLocError}</h3>
 		    <h3 class="main-body-text">${updateCatSessionError}</h3>
@@ -264,6 +226,9 @@
     </form:form>
     </div>
 
+	
+	
+	
     <!--Bootstrap sticky footer-->
 
     <footer class="footer mt-auto py-3">

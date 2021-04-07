@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,7 +20,7 @@ public class Location {
 	private String name;
 	@Column (name="address")
 	private String address;
-	@OneToMany(targetEntity=Employee.class)
+	@OneToMany(targetEntity=Employee.class, fetch=FetchType.EAGER)
 	private List<Employee> employeeList;
 	
 	
@@ -88,7 +89,7 @@ public class Location {
 	@Override
 	public String toString() {
 		// need to fill out %3s  in quotation marks (for each thing)
-		return String.format("", locId, name, address, employeeList);
+		return String.format("ID: %-20s Name: %-20s Address: %-20s ", locId, name, address);
 	}
 	
 	

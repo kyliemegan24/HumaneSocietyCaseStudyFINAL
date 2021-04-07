@@ -98,10 +98,11 @@ public class Employee {
 	}
 	
 	
+	
 	@Override
 	public String toString() {
 		// need to fill out %3s  in quotation marks (for each thingy)
-		return String.format("", eId, firstName, lastName, salary, position, locationId, password);
+		return String.format("ID: %-20s First Name: %-20s Last Name: %-20s Salary: %-20s Position: %-20s Location Id: %-20s", eId, firstName, lastName, salary, position, locationId);
 	}
 	
 	

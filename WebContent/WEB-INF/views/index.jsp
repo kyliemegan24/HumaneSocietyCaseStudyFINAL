@@ -35,7 +35,7 @@
 
 <body>
     <!--Bootstrap Navbar Code--> 
-    <nav style="background-color: rgb(65, 26, 156);" class="navbar navbar-expand-lg">
+   <!--  <nav style="background-color: rgb(65, 26, 156);" class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">Humane Society Manager</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -47,23 +47,26 @@
               <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Cats.html">Cats</a>
+              <a class="nav-link" href="Cats">Cats</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Dogs.html">Dogs</a>
+            <a class="nav-link" href="Dogs">Dogs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Employees.html">Employees</a>
+            <a class="nav-link" href="Employees">Employees</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Locations.html">Locations</a>
+            <a class="nav-link" href="Locations">Locations</a>
           </li>
             <li class="nav-item">
-              <a class="nav-link" href="LogIn.html">Log In</a>
+              <a class="nav-link" href="LogIn">Log In</a>
             </li>
           </ul>
         </div>
-    </nav>
+    </nav> -->
+    
+    <%@include file="navbar.jsp" %>
+    
     <br>
     <div>
         <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif">

@@ -31,6 +31,9 @@ public class Cat {
 	@Column (name="locationId")
 	private int locationId;
 	
+//	@Column (name="catPicture")
+//	private String catPicture;
+	
 	
 	public Cat() {
 		super();
