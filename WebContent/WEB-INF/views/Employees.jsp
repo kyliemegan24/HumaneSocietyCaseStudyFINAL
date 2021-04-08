@@ -104,6 +104,7 @@
                 <br>
                 <button type="submit" class="btn btn-primary" value="Add Employee">Submit</button>
                 <br>
+                <h3 class="main-body-text">${addEmpNoDuplicate}</h3>
             	<h3 class="main-body-text">${addEmpLocError}</h3>
 		   		<h3 class="main-body-text">${addEmpSessionError}</h3>
 		   	    <h3 class="main-body-text">${errorMessage}</h3>

@@ -1,5 +1,8 @@
 package com.humane.society.contollers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,8 @@ import com.humane.society.entity.Cat;
 import com.humane.society.entity.Dog;
 import com.humane.society.entity.Employee;
 import com.humane.society.entity.Location;
+import com.humane.society.exceptions.NoDuplicateException;
+import com.humane.society.exceptions.NoZeroException;
 import com.humane.society.service.CatService;
 import com.humane.society.service.DogService;
 import com.humane.society.service.EmployeeService;
@@ -112,20 +117,46 @@ public class HomeController {
 		@PostMapping("/addEmp")
 		public String addNewEmployee(@ModelAttribute("employee") Employee emp, Model model, BindingResult result, HttpSession session) {
 			Object loggedIn = session.getAttribute("currentUser");
+			int eId = emp.getEId();
+			List<Employee> empList = empService.getAllEmpService();
+			List<Integer> empIds = new ArrayList<Integer>();
+			for (Employee e : empList) {
+				empIds.add(e.getEId());
+			}
+			
+			
 			if (result.hasErrors()) {
 				model.addAttribute("errorMessage", "Error, please try again");
 				return "Employees";
 			} else if (loggedIn==null) {
 				model.addAttribute("addEmpSessionError", "Please log in to complete this action");
 				return "Employees";
-			} else {
+			} else if (eId==0) {
+				model.addAttribute("addEmpNoZero", "0 is not a valid ID");
+				try {
+					throw new NoZeroException("0 is not a vailid ID");
+				} catch (NoZeroException e) {
+					e.printStackTrace();
+				}
+				return "Employees"; 
+				
+				} else if (empIds.contains(eId)) {
+					model.addAttribute("addEmpNoDuplicate", "This Id already belongs to another user");
+					try {
+						throw new NoDuplicateException("This Id already belongs to another user");
+					} catch (NoDuplicateException e) {
+						e.printStackTrace();
+					}
+					return "Employees"; 
+					
+					} else {
 				int locId = emp.getLocationId();
 				Location location = locService.getLocService(locId);
 				if (location==null) {
 					model.addAttribute("addEmpStoreError", "Please ensure that the Store ID matches the ID of an existing store");
 					return "Employees";
 				} else {
-					int eId = emp.getEId();
+					
 					empService.addEmpService(emp);
 					locService.addEmpToLocService(eId, locId);
 					model.addAttribute("successMessage", "Employee added to the database successfully!");
