@@ -20,8 +20,10 @@ Repository Link - https://github.com/kyliemegan24/HumaneSocietyCaseStudyFINAL
 
 ### User Stories: 
 **Homepage**: As a humane society employee, I want to be able to read the FAQs on how the site works so that I may use the site in the most efficient way possible.
+
 **Login Page**: As a humane society employee, I want to be able to securely log in so that only myself and other humane society employees may access and edit information
 about dogs, cats, employees, and locations related to our humane society.
+
 **Cats**: As a humane society employee, I want to access the cats in our database to update their information/add and remove cats so that our database can be most up to date.
   Get Cat Form: As a humane society employee I want to be able to find a cat in our database by id, so that I may view their other information quickly and easily.
   Add Cat Form: As a humane society employee I want to be able to add a new cat to the database, so that it's information may be added to our database quickly and easily.
@@ -29,6 +31,7 @@ about dogs, cats, employees, and locations related to our humane society.
   Remove Cat Form: As a humane society employee I want to be able to remove a cat's information, so that our other employees can see that this cat is no longer in our database and no longer available 
   for adoption
   
+
 **Dogs**: As a humane society employee, I want access to the dogs in our database in order to update their information/add and remove dogs so that our database can be up to date and accurate.
   Get Dog Form: As a humane society employee I want to be able to find a dog in our database by id, so that I may view their other information quickly and easily.
   Add Dog Form: As a humane society employee I want to be able to add a new dog to the database, so that it's information may be added to our database quickly and easily.
