@@ -34,47 +34,48 @@ about dogs, cats, employees, and locations related to our humane society.
 
 **Dogs**: As a humane society employee, I want access to the dogs in our database in order to update their information/add and remove dogs so that our database can be up to date and accurate.
   
-  Get Dog Form: As a humane society employee I want to be able to find a dog in our database by id, so that I may view their other information quickly and easily.
+  - Get Dog Form: As a humane society employee I want to be able to find a dog in our database by id, so that I may view their other information quickly and easily.
   
-  Add Dog Form: As a humane society employee I want to be able to add a new dog to the database, so that it's information may be added to our database quickly and easily.
+  - Add Dog Form: As a humane society employee I want to be able to add a new dog to the database, so that it's information may be added to our database quickly and easily.
   
-  Update Dog Form: As a humane society employee I want to be able to update a dog's information, so that the database accurately reflects information about that dog.
+  - Update Dog Form: As a humane society employee I want to be able to update a dog's information, so that the database accurately reflects information about that dog.
   
-  Remove Dog Form: As a humane society employee I want to be able to remove a dog's information, so that other employees can see that this dog is no longer in our database and no longer available 
+  - Remove Dog Form: As a humane society employee I want to be able to remove a dog's information, so that other employees can see that this dog is no longer in our database and no longer available 
   for adoption
   
 **Employees**: As a humane society employee, I want to be able to see the employees from all locations in our database so that I may update their information and add/remove employees as needed.
    
-   Get Employee Form: As a humane society employee, I want to be able to look up an employee by id so that I may view their other information if needed.
+   - Get Employee Form: As a humane society employee, I want to be able to look up an employee by id so that I may view their other information if needed.
    
-   Add Employee Form: As a humane society employee I want to be able to add a new employee, so that when new employees are hired they may be quickly and easily added to our database.
+  -  Add Employee Form: As a humane society employee I want to be able to add a new employee, so that when new employees are hired they may be quickly and easily added to our database.
    
-   Update Employee Form: As a humane society employee, I want to be able to update an employee's information, so that if any of their information changes, it can easily be updated.
+   - Update Employee Form: As a humane society employee, I want to be able to update an employee's information, so that if any of their information changes, it can easily be updated.
   
-  Remove Employee Form: As a humane society employee, I want to be able to a delete an employee from the database so that if they are no longer working for our humane society, their information will not remain in the databse.
+  - Remove Employee Form: As a humane society employee, I want to be able to a delete an employee from the database so that if they are no longer working for our humane society, their information will not remain in the databse.
    
    
 **Locations**: As a humane society employee, I want to be able to add, delete, update, and find information about our various locations so that our database may be up to date.
  
- Get Location Form: As a humane society employee, I want to be able to look up locations by their location id, so that I may see their name and address quickly and easily.
+ - Get Location Form: As a humane society employee, I want to be able to look up locations by their location id, so that I may see their name and address quickly and easily.
    
-   Add Location Form: As a humane society employee, I want to be able to add a new location so that our employees can view data on that location in our database
+   - Add Location Form: As a humane society employee, I want to be able to add a new location so that our employees can view data on that location in our database
   
-  Update Location Form: As a humane society employee I want to be able to update location information so that our database shows accurate location names and addresses.
+  - Update Location Form: As a humane society employee I want to be able to update location information so that our database shows accurate location names and addresses.
    
-   Remove Location Form: As a humane society employee I want to be able to remove a location so that if a location closes, our database can reflect that.
-   Get Employees by location Form: As a humane society employee I want to be able to look up employees by location id, so that i may see a list of the employees that work at each location in order to assess
+   - Remove Location Form: As a humane society employee I want to be able to remove a location so that if a location closes, our database can reflect that.
+   
+   - Get Employees by location Form: As a humane society employee I want to be able to look up employees by location id, so that i may see a list of the employees that work at each location in order to assess
    whether team members should be moved to different locations based on resource availability for each location.
 
 
 ### Technology Used: 
-Java
-JPA
-MySQL
-Eclipse
-HTML
-CSS
-JSP
+- Java
+- JPA
+- MySQL
+- Eclipse
+- HTML
+- CSS
+- JSP
 
 
 
