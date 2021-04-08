@@ -18,7 +18,11 @@ Repository Link - https://github.com/kyliemegan24/HumaneSocietyCaseStudyFINAL
 4. Navigate to cats, dogs, employees, or locations to use the queries in order to find the information you're looking for. 
 
 ### DATABASE VISUAL
-<img src="drawsql.jpeg">
+<img src="drawsql.png">
+
+### SITE MAP
+
+<img src="sitemap.png">
 
 ### User Stories: 
 **Homepage**: As a humane society employee, I want to be able to read the FAQs on how the site works so that I may use the site in the most efficient way possible.
