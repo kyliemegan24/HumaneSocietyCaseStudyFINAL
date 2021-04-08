@@ -35,7 +35,7 @@
         <h2>Log In</h2>
         <form action="./LogIn" method="post" name="form1"> 
         <ul>
-        <li><input placeholder="Employee Id" type='text' name='eId'/></li>
+        <li><input placeholder="Employee Id" type='number' name='eId'/></li>
         <br>
         <li><input placeholder="password" type='text' name='password'/></li>
         <li>&nbsp;</li>

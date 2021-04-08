@@ -41,7 +41,7 @@
             <div class="form-group">
             <h1>Find Location by Id</h1>
             <label for="exampleFormControlInput1">Enter Location Id</label>
-            <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
             <form:errors path="locId"/>
             <br>
             <button value="Get Location" type="submit" class="btn btn-primary">Submit</button>
@@ -63,7 +63,7 @@
             <div class="form-group">
              <h1>Add New Location</h1>
               <label for="exampleFormControlInput1">Enter a New Location Id</label>
-              <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
               <form:errors path="locId"/>
             </div>
               
@@ -95,7 +95,7 @@
           <div class="form-group">
           <h1>Delete Location by Id</h1>
           <label for="exampleFormControlInput1">Enter Location Id</label>
-          <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="locId"/>
           <br>
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -117,7 +117,7 @@
         <div class="form-group">
          <h1>Update Location Details</h1>
           <label for="exampleFormControlInput1">Enter Location Id</label>
-          <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="locId"/>
         </div>
           
@@ -151,7 +151,7 @@
         <div class="form-group">
          <h1>See Employees by Location Id</h1>
           <label for="exampleFormControlInput1">Enter a Location Id</label>
-          <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="locId"/>
        
           <br>

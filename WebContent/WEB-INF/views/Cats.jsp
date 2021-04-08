@@ -39,7 +39,7 @@
             <div class="form-group">
             <h1>Find Cat by Id</h1>
             <label for="exampleFormControlInput1">Enter Cat Id</label>
-            <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
             <form:errors path="cId"/>
             <br>
             <button value="Get Cat" type="submit" class="btn btn-primary">Submit</button>
@@ -61,7 +61,7 @@
             <div class="form-group">
              <h1>Add New Cat to Records</h1>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
               <form:errors path="cId"/>
             </div>
               
@@ -73,7 +73,7 @@
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Age (in years)</label>
-              <form:input path="age" type="text" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+              <form:input path="age" type="number" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
               <form:errors path="age"/>
             </div>
               
@@ -85,21 +85,21 @@
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Is this cat up to date on shots? (enter 1 for YES, or 2 for NO)</label>
-              <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="upToDateShots"/>
             </div>
               
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Gender (1 for MALE, or 2 for FEMALE)</label>
-              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:input path="gender" type="number" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
               <form:errors path="gender"/>
               
             </div>    
             
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter the location id of the location where this cat is being held</label>
-              <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="locationId"/>
             
             
@@ -128,7 +128,7 @@
           <div class="form-group">
           <h1>Delete Cat by Id</h1>
           <label for="exampleFormControlInput1">Enter Cat Id</label>
-          <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="cId"/>
           <br>
           <button value="Delete Cat" type="submit" class="btn btn-primary">Submit</button>
@@ -149,7 +149,7 @@
         <div class="form-group">
          <h1>Update Existing Cat</h1>
           <label for="exampleFormControlInput1">Enter Cat Id</label>
-          <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="cId"/>
         </div>
           
@@ -161,7 +161,7 @@
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Cat Age (in years)</label>
-          <form:input path="age" type="text" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+          <form:input path="age" type="number" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
           <form:errors path="age"/>
         </div>
           
@@ -173,20 +173,20 @@
         
          <div class="form-group">
              <label for="exampleFormControlInput1">Is this cat up to date on shots? (enter 1 for YES, or 2 for NO)</label>
-             <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+             <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
              <form:errors path="upToDateShots"/>
         </div>
             
 
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Gender (1 for MALE, or 2 for FEMALE)</label>
-              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:input path="gender" type="number" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
               <form:errors path="gender"/>
             </div>  
             
              <div class="form-group">
               <label for="exampleFormControlInput1">Enter Location Id </label>
-              <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
               <form:errors path="locationId"/>
             <br>
             <button value="Update Cat" type="submit" class="btn btn-primary">Submit</button>    

@@ -192,13 +192,28 @@ public class HomeController {
 		@PostMapping("/updateEmp")
 		public String updateEmployee(@ModelAttribute("employee") Employee emp, Model model, BindingResult result, HttpSession session) {
 			Object loggedIn = session.getAttribute("currentUser");
+			int eId = emp.getEId();
+			List<Employee> empList = empService.getAllEmpService();
+			List<Integer> empIds = new ArrayList<Integer>();
+			for (Employee e : empList) {
+				empIds.add(e.getEId());
+			}
 			if (result.hasErrors()) {
 				model.addAttribute("updateEmpError", "There was an error with an input field, please try again");
 				return "Employees";
 			} else if (loggedIn==null) {
 				model.addAttribute("updateEmpSessionError", "You must be logged in to update an employee in the database");
 				return "Employees";
-			} else {
+			}  else if (empIds.contains(eId)) {
+				model.addAttribute("addEmpNoDuplicate", "This Id already belongs to another user");
+				try {
+					throw new NoDuplicateException("This Id already belongs to another user");
+				} catch (NoDuplicateException e) {
+					e.printStackTrace();
+				}
+				return "Employees"; 
+				
+				} else {
 				empService.updateEmpService(emp);
 				model.addAttribute("updateEmpSuccess", "Employee updated successfully!");
 				System.out.println("updated successfully");

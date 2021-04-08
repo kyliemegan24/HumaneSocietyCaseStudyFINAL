@@ -40,7 +40,7 @@
             <div class="form-group">
             <h1>Find Employee by Id</h1>
             <label for="exampleFormControlInput1">Enter Employee Id</label>
-            <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
             <form:errors path="eId"/>
             <br>
             <button type="submit" class="btn btn-primary" value="Get Employee">Submit</button>
@@ -62,7 +62,7 @@
             <div class="form-group">
              <h1>Add New Employee to Records</h1>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
               <form:errors path="eId"/>
             </div>
               
@@ -80,7 +80,7 @@
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee Salary (USD)</label>
-              <form:input path="salary" type="text" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
+              <form:input path="salary" type="number" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
               <form:errors path="salary"/>
             </div>
 
@@ -92,7 +92,7 @@
               
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Location Id</label>
-                <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+                <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
                 <form:errors path="locationId"/>
             </div>
               
@@ -122,7 +122,7 @@
           <div class="form-group">
           <h1>Delete Employee by Id</h1>
           <label for="exampleFormControlInput1">Enter Employee Id</label>
-          <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="eId"/>
           <br>
           <button value="Remove Employee" type="submit" class="btn btn-primary">Submit</button>
@@ -145,7 +145,7 @@
         <div class="form-group">
          <h1>Update Employee Information</h1>
           <label for="exampleFormControlInput1">Enter Employee Id</label>
-          <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="eId"/>
         </div>
           
@@ -163,7 +163,7 @@
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Employee Salary (USD)</label>
-          <form:input path="salary" type="text" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
+          <form:input path="salary" type="number" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
           <form:errors path="salary"/>
         </div>
 
@@ -175,7 +175,7 @@
           
         <div class="form-group">
             <label for="exampleFormControlInput1">Enter Location Id</label>
-            <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+            <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
             <form:errors path="locationId"/>
         </div>
           
@@ -188,6 +188,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         	<br>
        	  <h3 class="main-body-text">${updateEmpSessionError}</h3>
+       	  <h3 class="main-body-text">${addEmpNoDuplicate}</h3>
 		  <h3 class="main-body-text">${updateEmpError}</h3>
 		  <h3 class="main-body-text">${updateEmpSuccess}</h3>
 		  

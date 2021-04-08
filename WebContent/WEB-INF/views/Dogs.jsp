@@ -40,7 +40,7 @@
          <div class="form-group">
             <h1>Find Dog by Id</h1>
             <label for="exampleFormControlInput1">Enter Dog Id</label>
-            <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:input path="dId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
             <form:errors path="dId"/>
             <br>
             <button value="Get Dog" type="submit" class="btn btn-primary">Submit</button>
@@ -62,7 +62,7 @@
             <div class="form-group">
              <h1>Add New dog to Records</h1>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:input path="dId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
               <form:errors path="dId"/>
             </div>
               
@@ -74,7 +74,7 @@
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Dog Age (in years)</label>
-              <form:input path="age" type="text" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+              <form:input path="age" type="number" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
               <form:errors path="age"/>
             </div>
               
@@ -86,20 +86,20 @@
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Is this dog up to date on shots? (enter 1 for YES, or 2 for NO)</label>
-              <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="upToDateShots"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Dog Gender (1 for MALE, or 2 for FEMALE)</label>
-              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:input path="gender" type="number" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
               <form:errors path="gender"/>
               
             </div>    
             
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter the location id of the location where this dog is being held</label>
-              <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="locationId"/>
             <br>
             <button value="Add Dog" type="submit" class="btn btn-primary">Submit</button>    
@@ -121,7 +121,7 @@
           <div class="form-group">
           <h1>Delete Dog by Id</h1>
           <label for="exampleFormControlInput1">Enter Dog Id</label>
-          <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="dId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="dId"/>
           <br>
           <button value="Delete Dog" type="submit" class="btn btn-primary">Submit</button>
@@ -143,7 +143,7 @@
         <div class="form-group">
          <h1>Update Existing Dog</h1>
           <label for="exampleFormControlInput1">Enter Dog Id</label>
-          <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="dId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="dId"/>
         </div>
           
@@ -155,7 +155,7 @@
           
         <div class="form-group">
           <label for="exampleFormControlInput1">Enter Dog Age (in years)</label>
-          <form:input path="age" type="text" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+          <form:input path="age" type="number" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
           <form:errors path="age"/>
         </div>
           
@@ -167,14 +167,14 @@
         
          <div class="form-group">
              <label for="exampleFormControlInput1">Is this dog up to date on shots? (enter 1 for YES, or 2 for NO)</label>
-             <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+             <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
              <form:errors path="upToDateShots"/>
         </div>
             
             
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Dog Gender (1 for MALE, or 2 for FEMALE)</label>
-              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:input path="gender" type="number" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
               <form:errors path="gender"/>
               
             </div>   
@@ -182,7 +182,7 @@
             
              <div class="form-group">
               <label for="exampleFormControlInput1">Enter the location id of the location where this dog is being held</label>
-              <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="locationId"/>
            
             <br>
