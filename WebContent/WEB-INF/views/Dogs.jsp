@@ -211,7 +211,7 @@
             <br> 
           
                 
-            <h3 class="main-body-text">${updateDogLocError}</h3>
+            
 		    <h3 class="main-body-text">${updateDogSessionError}</h3>
 		   	<h3 class="main-body-text">${updateDogError}</h3>
 		   	<h3 class="main-body-text">${updateDogSuccess}</h3>

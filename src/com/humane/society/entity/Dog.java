@@ -126,7 +126,7 @@ public class Dog {
 		if (this.dId==comparedTo.getDId()
 			&& this.name.equals(comparedTo.getName())
 			&& this.age==(comparedTo.getAge())
-			&& this.breed.contentEquals(comparedTo.getBreed())
+			&& this.breed.equals(comparedTo.getBreed())
 			&& this.upToDateShots==(comparedTo.isUpToDateShots()) 
 			&& this.gender==(comparedTo.getGender())
 			&& this.locationId==(comparedTo.getLocationId()) )

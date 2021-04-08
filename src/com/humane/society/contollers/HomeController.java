@@ -544,7 +544,7 @@ public class HomeController {
 						} else {
 							
 							dogService.addDogService(dog);
-							// locService.addCatToLocService(cId, locId);
+							
 							model.addAttribute("addDogSuccess", "Dog added to the database successfully!");
 							System.out.println("Dog added to database successfully");
 						}
@@ -585,7 +585,7 @@ public class HomeController {
 					} else {
 						dogService.updateDogService(dog);
 						model.addAttribute("updateDogSuccess", "Dog updated successfully!");
-						System.out.println("updated successfully");
+					
 					}
 					
 					return "Dogs";
