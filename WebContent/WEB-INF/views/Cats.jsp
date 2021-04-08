@@ -133,6 +133,7 @@
             <br>
               
             <h3 class="main-body-text">${addCatLocError}</h3>
+            <h3 class="main-body-text">${addCatNoDuplicate}</h3>
 		    <h3 class="main-body-text">${addCatSessionError}</h3>
 		   	<h3 class="main-body-text">${addCatError}</h3>
 		   	<h3 class="main-body-text">${successMessage}</h3>

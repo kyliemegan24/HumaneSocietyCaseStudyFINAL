@@ -100,6 +100,7 @@
               <button value="Add New Location" type="submit" class="btn btn-primary">Submit</button>
               
             <h3 class="main-body-text">${addLocationError}</h3>
+            <h3 class="main-body-text">${addLocNoDuplicate}</h3>
 		    <h3 class="main-body-text">${addLocationSessionError}</h3>
 		   	<h3 class="main-body-text">${addLocationSuccess}</h3>
 		   	

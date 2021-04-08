@@ -167,7 +167,7 @@ public class HomeController {
 				int locId = emp.getLocationId();
 				Location location = locService.getLocService(locId);
 				if (location==null) {
-					model.addAttribute("addEmpStoreError", "Please ensure that the Store ID matches the ID of an existing store");
+					model.addAttribute("addEmpLocError", "Please ensure that the Location ID matches the ID of an existing location");
 					return "Employees";
 				} else {
 					
@@ -180,7 +180,7 @@ public class HomeController {
 			return "Employees";
 		}
 		
-		// gets an employee by id 
+		// gets employee by id 
 		
 		@PostMapping("/getEmp")
 		public String getEmployee(@ModelAttribute("employee") Employee emp, @RequestParam("eId") int eId, Model model, HttpSession session) {
@@ -222,16 +222,7 @@ public class HomeController {
 			} else if (loggedIn==null) {
 				model.addAttribute("updateEmpSessionError", "You must be logged in to update an employee in the database");
 				return "Employees";
-			}  else if (empIds.contains(eId)) {
-				model.addAttribute("addEmpNoDuplicate", "This Id already belongs to another user");
-				try {
-					throw new NoDuplicateException("This Id already belongs to another user");
-				} catch (NoDuplicateException e) {
-					e.printStackTrace();
-				}
-				return "Employees"; 
-				
-				} else {
+			} else {
 				empService.updateEmpService(emp);
 				model.addAttribute("updateEmpSuccess", "Employee updated successfully!");
 				System.out.println("updated successfully");
@@ -279,12 +270,26 @@ public class HomeController {
 				@PostMapping("/addLocation")
 				public String addNewLocation(@ModelAttribute("location") Location loc, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
+					int locId = loc.getLocId();
+					List<Location> locList = locService.getAllLocsService();
+					List<Integer> locIds = new ArrayList<Integer>();
+					for (Location e : locList) {
+						locIds.add(e.getLocId());
+					}
 					if (result.hasErrors()) {
 						model.addAttribute("addLocationError", "Please enter valid input");
 						return "Locations";
 					} else if (loggedIn==null) {
 						model.addAttribute("addLocationSessionError", "You must be logged in to add a store to the database");
 						return "Locations";
+					} else if (locIds.contains(locId)) {
+						model.addAttribute("addLocNoDuplicate", "This Id already belongs to another location");
+						try {
+							throw new NoDuplicateException("This Id already belongs to another location");
+						} catch (NoDuplicateException e) {
+							e.printStackTrace();
+						}
+						return "Locations"; 
 					} else {
 						locService.addLocService(loc);
 						model.addAttribute("addLocationSuccess", "Store added to the database successfully!");
@@ -314,13 +319,19 @@ public class HomeController {
 				@PostMapping("/updateLocation")
 				public String updateStore(@ModelAttribute("location") Location loc, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
+					int locId = loc.getLocId();
+					List<Location> locList = locService.getAllLocsService();
+					List<Integer> locIds = new ArrayList<Integer>();
+					for (Location e : locList) {
+						locIds.add(e.getLocId());
+					}
 					if (result.hasErrors()) {
 						model.addAttribute("updateLocError", "Please try again, there was an error with your input fields");
 						return "Locations";
 					} else if (loggedIn==null) {
 						model.addAttribute("updateLocSessionError", "Please log in to update");
 						return "Locations";
-					} else {
+					}  else {
 						locService.updateLocService(loc);
 						model.addAttribute("updateLocSuccess", "Location updated successfully!");
 						System.out.println("updated successfully");
@@ -378,12 +389,26 @@ public class HomeController {
 				@PostMapping("/addCat")
 				public String addNewCat(@ModelAttribute("cat") Cat cat, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
+					int cId = cat.getCId();
+					List<Cat> catList = catService.getAllCatsService();
+					List<Integer> catIds = new ArrayList<Integer>();
+					for (Cat e : catList) {
+						catIds.add(e.getCId());
+					}
 					if (result.hasErrors()) {
 						model.addAttribute("errorMessage", "Error, please try again");
 						return "Cats";
 					} else if (loggedIn==null) {
-						model.addAttribute("addEmpSessionError", "Please log in to complete this action");
+						model.addAttribute("addCatSessionError", "Please log in to complete this action");
 						return "Cats";
+					} else if (catIds.contains(cId)) {
+						model.addAttribute("addCatNoDuplicate", "This Id already belongs to another cat");
+						try {
+							throw new NoDuplicateException("This Id already belongs to another cat");
+						} catch (NoDuplicateException e) {
+							e.printStackTrace();
+						}
+						return "Cats";  
 					} else {
 						int locId = cat.getLocationId();
 						Location location = locService.getLocService(locId);
@@ -391,7 +416,7 @@ public class HomeController {
 							model.addAttribute("Loc", "Please ensure that the location ID matches the ID of an existing store");
 							return "Cats";
 						} else {
-							int cId = cat.getCId();
+							
 							catService.addCatService(cat);
 							// locService.addCatToLocService(cId, locId);
 							model.addAttribute("successMessage", "Cat added to the database successfully!");
@@ -425,19 +450,33 @@ public class HomeController {
 				@PostMapping("/updateCat")
 				public String updateCat(@ModelAttribute("cat") Cat cat, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
+					int cId = cat.getCId();
+					List<Cat> catList = catService.getAllCatsService();
+					List<Integer> catIds = new ArrayList<Integer>();
+					for (Cat e : catList) {
+						catIds.add(e.getCId());
+					}
 					if (result.hasErrors()) {
 						model.addAttribute("updateCatError", "Please try again, input field error");
 						return "Cats";
 					} else if (loggedIn==null) {
 						model.addAttribute("updateCatSessionError", "You must be logged in to update a cat in the database");
 						return "Cats";
+					
 					} else {
+						int locId = cat.getLocationId();
+						Location location = locService.getLocService(locId);
+						if (location==null) {
+							model.addAttribute("Loc", "Please ensure that the location ID matches the ID of an existing store");
+							return "Cats"; 
+						} else {
 						catService.updateCatService(cat);
 						model.addAttribute("updateCatSuccess", "Cat updated successfully!");
 						System.out.println("updated successfully");
 					}
 					
 					return "Cats";
+				}
 				}
 				
 				@PostMapping("/removeCat")
@@ -476,20 +515,34 @@ public class HomeController {
 				@PostMapping("/addDog")
 				public String addNewDog(@ModelAttribute("dog") Dog dog, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
+					int dId = dog.getDId();
+					List<Dog> dogList = dogService.getAllDogsService();
+					List<Integer> dogIds = new ArrayList<Integer>();
+					for (Dog e : dogList) {
+						dogIds.add(e.getDId());
+					}
 					if (result.hasErrors()) {
 						model.addAttribute("errorMessage", "Error, please try again");
 						return "Dogs";
 					} else if (loggedIn==null) {
 						model.addAttribute("addDogSessionError", "Please log in to complete this action");
 						return "Dogs";
-					} else {
+					} else if (dogIds.contains(dId)) {
+						model.addAttribute("addDogNoDuplicate", "This Id already belongs to another dog");
+						try {
+							throw new NoDuplicateException("This Id already belongs to another dog");
+						} catch (NoDuplicateException e) {
+							e.printStackTrace();
+						}
+						return "Dogs";  
+					}  else {
 						int locId = dog.getLocationId();
 						Location location = locService.getLocService(locId);
 						if (location==null) {
 							model.addAttribute("Loc", "Please ensure that the location ID matches the ID of an existing location");
 							return "Dogs";
 						} else {
-							int dId = dog.getDId();
+							
 							dogService.addDogService(dog);
 							// locService.addCatToLocService(cId, locId);
 							model.addAttribute("addDogSuccess", "Dog added to the database successfully!");

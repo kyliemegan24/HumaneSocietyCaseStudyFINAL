@@ -125,6 +125,7 @@
             <button value="Add Dog" type="submit" class="btn btn-primary">Submit</button>    
             <br>
             <h3 class="main-body-text">${addDogLocError}</h3>
+            <h3 class="main-body-text">${addDogNoDuplicate}</h3>
 		    <h3 class="main-body-text">${addDogSessionError}</h3>
 		   	<h3 class="main-body-text">${addDogError}</h3>
 		   	<h3 class="main-body-text">${addDogSuccess}</h3>
