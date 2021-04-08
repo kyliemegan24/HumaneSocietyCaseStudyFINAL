@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+ <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +33,25 @@
     <%@include file="navbar.jsp" %>
     
     <br>
-  
+    
+    
+    <div class="mail">
+        <form:form action="./viewCats" method="post" modelAttribute="cat">
+            <div class="form-group">
+            <h1>View All Cats</h1>
+            <br>
+            <button value="View Cats" type="submit" class="btn btn-primary">View Cats</button>
+            <br>
+            <h3 class="main-body-text">${viewCatSessionError}</h3>
+		    <div class="main-body-text" >
+				<c:forEach items = "${catList}" var="cats">
+					<h5><c:out value="${cats}"/></h5>
+				</c:forEach>
+				</div>
+		    </div>
+        </form:form>
+    </div>
+  	<br>
     <!--Form for finding cat by id-->
     <div class="mail">
         <form:form action="./getCat" method="post" modelAttribute="cat">

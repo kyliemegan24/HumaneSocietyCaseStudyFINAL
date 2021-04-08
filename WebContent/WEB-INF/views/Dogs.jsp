@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+ <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +33,26 @@
    
    <%@include file="navbar.jsp" %>
     
-    <br> -->
+    <br>
+    
+    <div class="mail">
+        <form:form action="./viewDogs" method="post" modelAttribute="dog">
+            <div class="form-group">
+            <h1>View All Dogs</h1>
+            <br>
+            <button value="View Dogs" type="submit" class="btn btn-primary">View Dogs</button>
+            <br>
+            <h3 class="main-body-text">${viewDogSessionError}</h3>
+		    <div class="main-body-text" >
+				<c:forEach items = "${dogList}" var="dogs">
+					<h5><c:out value="${dogs}"/></h5>
+				</c:forEach>
+				</div>
+		    </div>
+        </form:form>
+    </div>
+
+    <br>
   
     <!--Form for finding Dog by id-->
     <div class="mail">

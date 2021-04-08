@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,27 @@
     <%@include file="navbar.jsp" %>
     
     <br>
-  
+    <!-- View all employees -->
+    <div class="mail">
+  <form:form action="./viewEmps" method="post" modelAttribute="employees">
+			<div class="form-group">
+				<h1>View All Employees</h1>
+			
+			<br>
+			<div>
+			    <button type="submit" class="btn btn-primary" value="Get Employees">View Employees</button>
+			</div>
+			<h3 class="main-body-text">${viewEmpSessionError}</h3>
+			<div class="main-body-text" >
+				<c:forEach items = "${empList}" var="emp">
+					<h5><c:out value="${emp}"/><h5>
+				</c:forEach>
+				</div>
+			</div>
+		</form:form>
+		
+	</div>
+		<br>
     <!--Form for getting employee by id-->
     <div class="mail">
         <form:form action="./getEmp" method="post" modelAttribute="employee">

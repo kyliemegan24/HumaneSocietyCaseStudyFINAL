@@ -34,6 +34,25 @@
     <%@include file="navbar.jsp" %>
     
     <br>
+    <!--Form for showing all locations -->
+    <div class="mail">
+        <form:form action="./viewLocs" method="post" modelAttribute="location">
+            <div class="form-group">
+            <h1>View All Locations</h1>
+            <br>
+            <button value="View Locations" type="submit" class="btn btn-primary">View Locations</button>
+            <br>
+            <h3 class="main-body-text">${viewLocSessionError}</h3>
+		    <div class="main-body-text" >
+				<c:forEach items = "${locList}" var="locs">
+					<h5><c:out value="${locs}"/></h5>
+				</c:forEach>
+				</div>
+		    </div>
+        </form:form>
+    </div>
+
+    <br>
   
     <!--Form for find location by id-->
     <div class="mail">

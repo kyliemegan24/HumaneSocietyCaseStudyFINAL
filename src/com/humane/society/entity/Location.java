@@ -91,7 +91,7 @@ public class Location {
 	@Override
 	public String toString() {
 		// need to fill out the first argument, need to figure out how and don't want to rn
-		return String.format("ID: %-20s Name: %-20s Address: %-20s gmId: %-20s", locId, name, address);
+		return String.format("ID: %-20s, Name: %-20s, Address: %-20s", locId, name, address);
 	}
 	
 	@Override

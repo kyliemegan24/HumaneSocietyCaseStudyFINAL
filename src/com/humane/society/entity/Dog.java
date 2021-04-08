@@ -116,7 +116,7 @@ public class Dog {
 	@Override
 	public String toString() {
 		// need to fill out %3s in quotation marks for each param
-		return String.format("", dId, name, age, breed, upToDateShots, gender, locationId);
+		return String.format("ID: %-20s, Name: %-20s, Age: %-20s, Breed: %-20s, Up to Date Shots: %-20s, Gender: %-20s, Location Id: %-20s", dId, name, age, breed, upToDateShots, gender, locationId);
 	}
 	
 	

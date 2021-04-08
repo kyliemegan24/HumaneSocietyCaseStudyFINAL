@@ -114,6 +114,20 @@ public class HomeController {
 		
 		//Employee CRUD Methods
 		
+		// shows all employees in the database
+		@PostMapping("viewEmps")
+		public String viewEmpsByID(@ModelAttribute("employee") Employee emp, Model model, HttpSession session) {
+			Object loggedIn = session.getAttribute("currentUser");
+			if (loggedIn==null) {
+				model.addAttribute("viewEmpSessionError", "You must be logged in to view all employees in the database");
+				return "Employees";
+			} else {
+				model.addAttribute("empList", empService.getAllEmpService());
+			}
+			return "Employees";
+		}
+		
+		// adds a new employee to the database
 		@PostMapping("/addEmp")
 		public String addNewEmployee(@ModelAttribute("employee") Employee emp, Model model, BindingResult result, HttpSession session) {
 			Object loggedIn = session.getAttribute("currentUser");
@@ -166,6 +180,8 @@ public class HomeController {
 			return "Employees";
 		}
 		
+		// gets an employee by id 
+		
 		@PostMapping("/getEmp")
 		public String getEmployee(@ModelAttribute("employee") Employee emp, @RequestParam("eId") int eId, Model model, HttpSession session) {
 			Object loggedIn = session.getAttribute("currentUser");
@@ -188,6 +204,8 @@ public class HomeController {
 			}
 			return "Employees";
 		}
+		
+		//updates existing employee in the database
 		
 		@PostMapping("/updateEmp")
 		public String updateEmployee(@ModelAttribute("employee") Employee emp, Model model, BindingResult result, HttpSession session) {
@@ -243,6 +261,19 @@ public class HomeController {
 
 		
 		//Location CRUD methods
+		
+		// shows all locations in the database
+				@PostMapping("/viewLocs")
+				public String viewLocsByID(@ModelAttribute("location") Location loc, Model model, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					if (loggedIn==null) {
+						model.addAttribute("viewLocSessionError", "You must be logged in to view all locations in the database");
+						return "Locations";
+					} else {
+						model.addAttribute("locList", locService.getAllLocsService());
+					}
+					return "Locations";
+				}
 		
 		
 				@PostMapping("/addLocation")
@@ -331,6 +362,19 @@ public class HomeController {
 				
 				//Cat CRUD methods 
 				
+				// shows all locations in the database
+				@PostMapping("/viewCats")
+				public String viewCatsByID(@ModelAttribute("cat") Cat cat, Model model, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					if (loggedIn==null) {
+						model.addAttribute("viewCatSessionError", "You must be logged in to view all cats in the database");
+						return "Cats";
+					} else {
+						model.addAttribute("catList", catService.getAllCatsService());
+					}
+					return "Cats";
+				}
+				
 				@PostMapping("/addCat")
 				public String addNewCat(@ModelAttribute("cat") Cat cat, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
@@ -414,7 +458,20 @@ public class HomeController {
 				
 				
 				
-//			// Dog CRUD methods
+			// Dog CRUD methods
+				
+				// shows all locations in the database
+				@PostMapping("/viewDogs")
+				public String viewDogsByID(@ModelAttribute("dog") Dog dog, Model model, HttpSession session) {
+					Object loggedIn = session.getAttribute("currentUser");
+					if (loggedIn==null) {
+						model.addAttribute("viewDogSessionError", "You must be logged in to view all dogs in the database");
+						return "Dogs";
+					} else {
+						model.addAttribute("dogList", dogService.getAllDogsService());
+					}
+					return "Dogs";
+				}
 				
 				@PostMapping("/addDog")
 				public String addNewDog(@ModelAttribute("dog") Dog dog, Model model, BindingResult result, HttpSession session) {
