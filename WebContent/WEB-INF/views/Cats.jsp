@@ -29,35 +29,8 @@
 <body onload='document.form1.text1.focus()'>
 
     <!--Bootstrap Navbar Code--> 
-    <nav style="background-color: rgb(65, 26, 156);" class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#">Humane Society Manager</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <%@include file="navbar.jsp" %>
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Cats.html">Cats<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Dogs.html">Dogs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Employees.html">Employees</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Locations.html">Locations</a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="LogIn.html">Log In</a>
-          </li>
-        </ul>
-      </div>
-  </nav>
     <br>
   
     <!--Form for finding cat by id-->
@@ -70,10 +43,11 @@
             <form:errors path="cId"/>
             <br>
             <button value="Get Cat" type="submit" class="btn btn-primary">Submit</button>
-            </div>
+            <br>
             <h3 class="main-body-text">${getCatSessionError}</h3>
 		    <h3 class="main-body-text">${getCatError}</h3>
 		    <h5 class="main-body-text">${cId}${name}${age}${breed}${upToDateShots}${gender}${locationId}</h5>
+       		</div>
         </form:form>
     </div>
 
@@ -92,7 +66,7 @@
             </div>
               
             <div class="form-group">
-              <label for="exampleFormControlInput1">Enter Cat Name</label>
+              <label for="exampleFormControlInput1">Enter a New Name</label>
               <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Hila"/>
               <form:errors path="name"/>
             </div>
@@ -127,7 +101,7 @@
               <label for="exampleFormControlInput1">Enter the location id of the location where this cat is being held</label>
               <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="locationId"/>
-            </div>
+            
             
              <%-- <div class="form-group">
               <label for="exampleFormControlInput1">Enter image for cat</label>
@@ -135,14 +109,15 @@
               <form:errors path="catPicture"/>
             </div> --%>
             
+            <br>
             <button value="Add Cat" type="submit" class="btn btn-primary">Submit</button>    
-              
+            <br>
               
             <h3 class="main-body-text">${addCatLocError}</h3>
 		    <h3 class="main-body-text">${addCatSessionError}</h3>
 		   	<h3 class="main-body-text">${addCatError}</h3>
 		   	<h3 class="main-body-text">${successMessage}</h3>
-                
+           </div>
         </form:form>
         </div>
       <br>
@@ -157,11 +132,11 @@
           <form:errors path="cId"/>
           <br>
           <button value="Delete Cat" type="submit" class="btn btn-primary">Submit</button>
-          </div>
-          
+          <br>
           <h3 class="main-body-text">${RemoveCatError}</h3>
 		  <h3 class="main-body-text">${removeCatSessionError}</h3>
 		  <h3 class="main-body-text">${removeCatSuccess}</h3>
+		  </div>
       </form:form>
   </div>
   <br>
@@ -173,7 +148,7 @@
         
         <div class="form-group">
          <h1>Update Existing Cat</h1>
-          <label for="exampleFormControlInput1">Enter a New Id</label>
+          <label for="exampleFormControlInput1">Enter Cat Id</label>
           <form:input path="cId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="cId"/>
         </div>
@@ -210,19 +185,18 @@
             </div>  
             
              <div class="form-group">
-              <label for="exampleFormControlInput1">Enter Cat Gender (1 for MALE, or 2 for FEMALE)</label>
-              <form:input path="gender" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
-              <form:errors path="gender"/>
-            </div>  
-              
-            
+              <label for="exampleFormControlInput1">Enter Location Id </label>
+              <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:errors path="locationId"/>
+            <br>
             <button value="Update Cat" type="submit" class="btn btn-primary">Submit</button>    
-              
+            <br>
                 
             <h3 class="main-body-text">${updateCatLocError}</h3>
 		    <h3 class="main-body-text">${updateCatSessionError}</h3>
 		   	<h3 class="main-body-text">${updateCatError}</h3>
 		   	<h3 class="main-body-text">${updateCatSuccess}</h3>
+		   	</div> 
     </form:form>
     </div>
 

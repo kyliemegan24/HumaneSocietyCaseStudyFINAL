@@ -124,6 +124,21 @@ public class Cat {
 		return String.format("", cId, name, age, breed, upToDateShots, gender, locationId);
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		Cat comparedTo = (Cat) o;
+		if (this.cId==comparedTo.getCId()
+			&& this.name.equals(comparedTo.getName())
+			&& this.age==(comparedTo.getAge())
+			&& this.breed.contentEquals(comparedTo.getBreed())
+			&& this.upToDateShots==(comparedTo.isUpToDateShots()) 
+			&& this.gender==(comparedTo.getGender())
+			&& this.locationId==(comparedTo.getLocationId()) )
+			 {
+			return true;
+		}
+		
+		return false;
+	}
 
 }

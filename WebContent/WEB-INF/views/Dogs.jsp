@@ -28,52 +28,27 @@
 </style>
 <body onload='document.form1.text1.focus()'>
 
-    <!--Bootstrap Navbar Code--> 
-    <nav style="background-color: rgb(65, 26, 156);" class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#">Humane Society Manager</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+   <!--  <!--Bootstrap Navigation-bar Code--> 
+   
+   <%@include file="navbar.jsp" %>
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Dogs.html">Cats</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Dogs.html">Dogs<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Employees.html">Employees</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Locations.html">Locations</a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="LogIn.html">Log In</a>
-          </li>
-        </ul>
-      </div>
-  </nav>
-    <br>
+    <br> -->
   
     <!--Form for finding Dog by id-->
     <div class="mail">
         <form:form action="./getDog" method="post" modelAttribute="dog">
-            <div class="form-group">
+         <div class="form-group">
             <h1>Find Dog by Id</h1>
             <label for="exampleFormControlInput1">Enter Dog Id</label>
             <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
             <form:errors path="dId"/>
             <br>
             <button value="Get Dog" type="submit" class="btn btn-primary">Submit</button>
-            </div>
+            <br>
             <h3 class="main-body-text">${getDogSessionError}</h3>
 		    <h3 class="main-body-text">${getDogError}</h3>
 		    <h5 class="main-body-text">${dId}${name}${age}${breed}${upToDateShots}${gender}${locationId}</h5>
+        </div>
         </form:form>
     </div>
 
@@ -114,16 +89,6 @@
               <form:input path="upToDateShots" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="upToDateShots"/>
             </div>
-            
-           <!--    <div class="form-group">
-                <label for="inputState">Is this cat up to date on shots? (1 for YES, 2 for NO)</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>1</option>
-                  <option>2</option>
-                </select>
-              </div> -->
-              
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Dog Gender (1 for MALE, or 2 for FEMALE)</label>
@@ -136,25 +101,14 @@
               <label for="exampleFormControlInput1">Enter the location id of the location where this dog is being held</label>
               <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="locationId"/>
-            </div>
-            
+            <br>
             <button value="Add Dog" type="submit" class="btn btn-primary">Submit</button>    
-              
-              <!--   <div class="form-group">
-                  <label for="inputState">Enter Cat Gender (1 for MALE, 2 for FEMALE)</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                  <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </div> -->
-                
+            <br>
             <h3 class="main-body-text">${addDogLocError}</h3>
 		    <h3 class="main-body-text">${addDogSessionError}</h3>
 		   	<h3 class="main-body-text">${addDogError}</h3>
 		   	<h3 class="main-body-text">${addDogSuccess}</h3>
+            </div>
                 
         </form:form>
         </div>
@@ -171,11 +125,12 @@
           <form:errors path="dId"/>
           <br>
           <button value="Delete Dog" type="submit" class="btn btn-primary">Submit</button>
-          </div>
+          <br>
           
           <h3 class="main-body-text">${RemoveDogError}</h3>
 		  <h3 class="main-body-text">${removeDogSessionError}</h3>
 		  <h3 class="main-body-text">${removeDogSuccess}</h3>
+		  </div>
       </form:form>
   </div>
   <br>
@@ -187,7 +142,7 @@
         
         <div class="form-group">
          <h1>Update Existing Dog</h1>
-          <label for="exampleFormControlInput1">Enter a New Id</label>
+          <label for="exampleFormControlInput1">Enter Dog Id</label>
           <form:input path="dId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="dId"/>
         </div>
@@ -216,8 +171,6 @@
              <form:errors path="upToDateShots"/>
         </div>
             
-          
- 
             
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Dog Gender (1 for MALE, or 2 for FEMALE)</label>
@@ -231,16 +184,17 @@
               <label for="exampleFormControlInput1">Enter the location id of the location where this dog is being held</label>
               <form:input path="locationId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
               <form:errors path="locationId"/>
-            </div> 
-            
-            <button value="Update Dog" type="submit" class="btn btn-primary">Submit</button>    
-              
            
+            <br>
+            <button value="Update Dog" type="submit" class="btn btn-primary">Submit</button>    
+            <br> 
+          
                 
             <h3 class="main-body-text">${updateDogLocError}</h3>
 		    <h3 class="main-body-text">${updateDogSessionError}</h3>
 		   	<h3 class="main-body-text">${updateDogError}</h3>
 		   	<h3 class="main-body-text">${updateDogSuccess}</h3>
+		   	</div> 
     </form:form>
     </div>
 

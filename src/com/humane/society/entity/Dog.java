@@ -118,4 +118,22 @@ public class Dog {
 		// need to fill out %3s in quotation marks for each param
 		return String.format("", dId, name, age, breed, upToDateShots, gender, locationId);
 	}
+	
+	
+	@Override
+	public boolean equals(Object o) {
+		Dog comparedTo = (Dog) o;
+		if (this.dId==comparedTo.getDId()
+			&& this.name.equals(comparedTo.getName())
+			&& this.age==(comparedTo.getAge())
+			&& this.breed.contentEquals(comparedTo.getBreed())
+			&& this.upToDateShots==(comparedTo.isUpToDateShots()) 
+			&& this.gender==(comparedTo.getGender())
+			&& this.locationId==(comparedTo.getLocationId()) )
+			 {
+			return true;
+		}
+		
+		return false;
+	}
 }

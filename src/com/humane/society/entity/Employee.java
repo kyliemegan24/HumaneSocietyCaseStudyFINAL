@@ -101,9 +101,26 @@ public class Employee {
 	
 	@Override
 	public String toString() {
-		// need to fill out %3s  in quotation marks (for each thingy)
-		return String.format("ID: %-20s First Name: %-20s Last Name: %-20s Salary: %-20s Position: %-20s Location Id: %-20s", eId, firstName, lastName, salary, position, locationId);
+		// need to fill out %3s  in quotation marks 
+		return String.format("ID: %-20s First Name: %-20s Last Name: %-20s Salary: %-20s Position: %-20s Location Id: %-20s", eId, firstName, lastName, salary, position, locationId, password);
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		Employee comparedTo = (Employee) o;
+		if (this.eId==comparedTo.getEId()
+			&& this.firstName.equals(comparedTo.getFirstName())
+			&& this.lastName.equals(comparedTo.getLastName())
+			&& this.salary==(comparedTo.getSalary())
+			&& this.position.equals(comparedTo.getPosition())
+			&& this.locationId==(comparedTo.getLocationId()) 
+			&& this.password.equals(comparedTo.getPassword()) 
+			 )
+			 {
+			return true;
+		}
+		
+		return false;
+	}
 	
 }

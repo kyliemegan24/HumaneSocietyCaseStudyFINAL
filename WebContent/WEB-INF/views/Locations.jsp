@@ -30,35 +30,9 @@
 <body onload='document.form1.text1.focus()'>
 
     <!--Bootstrap Navbar Code--> 
-    <nav style="background-color: rgb(65, 26, 156);" class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#">Humane Society Manager</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Cats.html">Cats</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Dogs.html">Dogs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Employees.html">Employees</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Locations.html">Locations<span class="sr-only">(current)</span></a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="LogIn.html">Log In</a>
-          </li>
-        </ul>
-      </div>
-  </nav>
+    <%@include file="navbar.jsp" %>
+    
     <br>
   
     <!--Form for find location by id-->
@@ -71,10 +45,11 @@
             <form:errors path="locId"/>
             <br>
             <button value="Get Location" type="submit" class="btn btn-primary">Submit</button>
-            </div>
+            <br>
             <h3 class="main-body-text">${getLocSessionError}</h3>
 		    <h3 class="main-body-text">${getLocError}</h3>
 		    <h5 class="main-body-text">${locId}${name}${address}</h5>
+		    </div>
         </form:form>
     </div>
 
@@ -124,7 +99,7 @@
           <form:errors path="locId"/>
           <br>
           <button type="submit" class="btn btn-primary">Submit</button>
-          
+          <br>
           <h3 class="main-body-text">${removeLocationError}</h3>
 		  <h3 class="main-body-text">${removeLocSessionError}</h3>
 		  <h3 class="main-body-text">${removeLocSuccess}</h3>
@@ -141,7 +116,7 @@
             
         <div class="form-group">
          <h1>Update Location Details</h1>
-          <label for="exampleFormControlInput1">Enter a New Id</label>
+          <label for="exampleFormControlInput1">Enter Location Id</label>
           <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="locId"/>
         </div>
@@ -158,15 +133,16 @@
           <form:errors path="address"/>
           <br>
           <button type="submit" class="btn btn-primary">Submit</button>
-          
+          <br>
            <h3 class="main-body-text">${updatetLocError}</h3>
-		    <h3 class="main-body-text">${updateLocSessionError}</h3>
-		   	<h3 class="main-body-text">${updateLocSuccess}</h3>
+		   <h3 class="main-body-text">${updateLocSessionError}</h3>
+		   <h3 class="main-body-text">${updateLocSuccess}</h3>
         </div>
         
     </form:form>
     </div>
     
+    <br>
     <!-- form for looking up employees by location -->
     
     <div class="mail">
@@ -177,8 +153,8 @@
           <label for="exampleFormControlInput1">Enter a Location Id</label>
           <form:input path="locId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="locId"/>
-        </div>
-          
+       
+          <br>
         <div>
           <button value="View Employees" type="submit" class="btn btn-primary">Submit</button>
           
@@ -193,7 +169,7 @@
 		   	
 		   	</div>
         </div>
-        
+         </div>
     </form:form>
     </div>
 

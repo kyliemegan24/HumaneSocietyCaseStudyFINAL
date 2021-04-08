@@ -29,35 +29,9 @@
 <body onload='document.form1.text1.focus()'>
 
     <!--Bootstrap Navbar Code--> 
-    <nav style="background-color: rgb(65, 26, 156);" class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#">Humane Society Manager</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Cats.html">Cats</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Dogs.html">Dogs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Employees.html">Employees<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Locations.html">Locations</a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="LogIn.html">Log In</a>
-          </li>
-        </ul>
-      </div>
-  </nav>
+    <%@include file="navbar.jsp" %>
+    
     <br>
   
     <!--Form for getting employee by id-->
@@ -70,10 +44,11 @@
             <form:errors path="eId"/>
             <br>
             <button type="submit" class="btn btn-primary" value="Get Employee">Submit</button>
-            </div>
+            <br>
             <h3 class="main-body-text">${getEmpSessionError}</h3>
 		    <h3 class="main-body-text">${getEmpError}</h3>
-		    <h5 class="main-body-text">${eId}${firstName}${lastName}${salary}${position}${locationId}${password}</h5>
+		    <h5 class="main-body-text">${eId}${firstName}${lastName}${salary}${position}${locationId}</h5>
+		    </div>
         </form:form>
     </div>
 
@@ -128,11 +103,14 @@
                     
                 <br>
                 <button type="submit" class="btn btn-primary" value="Add Employee">Submit</button>
+                <br>
+            	<h3 class="main-body-text">${addEmpLocError}</h3>
+		   		<h3 class="main-body-text">${addEmpSessionError}</h3>
+		   	    <h3 class="main-body-text">${errorMessage}</h3>
+		   	    <h3 class="main-body-text">${successMessage}</h3>
+            
             </div>
-           	<h3 class="main-body-text">${addEmpLocError}</h3>
-		    <h3 class="main-body-text">${addEmpSessionError}</h3>
-		   	<h3 class="main-body-text">${errorMessage}</h3>
-		   	<h3 class="main-body-text">${successMessage}</h3>
+           	
         </form:form>
         </div>
       <br>
@@ -147,11 +125,13 @@
           <form:errors path="eId"/>
           <br>
           <button value="Remove Employee" type="submit" class="btn btn-primary">Submit</button>
-          </div>
+          <br>
           
           <h3 class="main-body-text">${removeEmpSessionError}</h3>
 		  <h3 class="main-body-text">${removeEmpError}</h3>
 		  <h3 class="main-body-text">${removeEmpSuccess}</h3>
+		  
+		  </div>
       </form:form>
   </div>
   <br>
@@ -163,7 +143,7 @@
             
         <div class="form-group">
          <h1>Update Employee Information</h1>
-          <label for="exampleFormControlInput1">Enter a New Id</label>
+          <label for="exampleFormControlInput1">Enter Employee Id</label>
           <form:input path="eId" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
           <form:errors path="eId"/>
         </div>
@@ -205,10 +185,12 @@
                 
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+        	<br>
        	  <h3 class="main-body-text">${updateEmpSessionError}</h3>
 		  <h3 class="main-body-text">${updateEmpError}</h3>
 		  <h3 class="main-body-text">${updateEmpSuccess}</h3>
+		  
+		  </div>
     </form:form>
     </div>
 

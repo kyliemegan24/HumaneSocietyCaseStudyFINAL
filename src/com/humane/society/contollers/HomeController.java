@@ -147,12 +147,12 @@ public class HomeController {
 				return "Employees";
 			} else {
 				System.out.println(emp.getFirstName());
-				model.addAttribute("eId", emp.getEId() + ", ");
-				model.addAttribute("firstName", emp.getFirstName() + ", ");
-				model.addAttribute("lastName", emp.getLastName() + ", ");
-				model.addAttribute("salary", emp.getSalary() + ", ");
-				model.addAttribute("position", emp.getPosition() + ", ");
-				model.addAttribute("locationId", emp.getLocationId() + ", ");
+				model.addAttribute("eId", "Employee Id: " +emp.getEId() + ", ");
+				model.addAttribute("firstName", "First Name: " + emp.getFirstName() + ", ");
+				model.addAttribute("lastName", "Last Name: " + emp.getLastName() + ", ");
+				model.addAttribute("salary", "Salary: " + emp.getSalary() + ", ");
+				model.addAttribute("position", "Position: " + emp.getPosition() + ", ");
+				model.addAttribute("locationId","Location Id: " + emp.getLocationId() + ", ");
 				model.addAttribute("password", emp.getPassword() + " ");
 			}
 			return "Employees";
@@ -226,9 +226,9 @@ public class HomeController {
 						model.addAttribute("getLocSessionError", "To view a location, please log in");
 						return "Locations";
 					} else {
-						model.addAttribute("locId", loc.getLocId() + ", ");
-						model.addAttribute("name", loc.getName() + ", ");
-						model.addAttribute("address", loc.getAddress() + " ");
+						model.addAttribute("locId", "Location Id: " +  loc.getLocId() + ", ");
+						model.addAttribute("name", "Name: " + loc.getName() + ", ");
+						model.addAttribute("address", "Address: " +loc.getAddress() + " ");
 						
 					}
 					return "Locations";
@@ -321,13 +321,13 @@ public class HomeController {
 						model.addAttribute("getCatSessionError", "You must be logged in to view a cat in the database");
 						return "Cats";
 					} else {
-						model.addAttribute("cId", cat.getCId() + ", ");
-						model.addAttribute("name", cat.getName() + ", ");
-						model.addAttribute("age", cat.getAge() + ", ");
-						model.addAttribute("breed", cat.getBreed() + ", ");
-						model.addAttribute("upToDateShots", cat.isUpToDateShots() + ", ");
-						model.addAttribute("gender", cat.getGender() + ", ");
-						model.addAttribute("locationId", cat.getLocationId() + " ");
+						model.addAttribute("cId", "Cat Id: " +cat.getCId() + ", ");
+						model.addAttribute("name", "Name: " + cat.getName() + ", ");
+						model.addAttribute("age", "Age: " + cat.getAge() + ", ");
+						model.addAttribute("breed", "Breed: " + cat.getBreed() + ", ");
+						model.addAttribute("upToDateShots", "Up to date shots: " + cat.isUpToDateShots() + ", ");
+						model.addAttribute("gender", "Gender: " + cat.getGender() + ", ");
+						model.addAttribute("locationId","Location Id: " + cat.getLocationId() + " ");
 					}
 					return "Cats";
 				}
@@ -406,13 +406,13 @@ public class HomeController {
 						model.addAttribute("getDogSessionError", "You must be logged in to view a dog in the database");
 						return "Dogs";
 					} else {
-						model.addAttribute("dId", dog.getDId() + ", ");
-						model.addAttribute("name", dog.getName() + ", ");
-						model.addAttribute("age", dog.getAge() + ", ");
-						model.addAttribute("breed", dog.getBreed() + ", ");
-						model.addAttribute("upToDateShots", dog.isUpToDateShots() + ", ");
-						model.addAttribute("gender", dog.getGender() + ", ");
-						model.addAttribute("locationId", dog.getLocationId() + " ");
+						model.addAttribute("dId","Dog Id: " + dog.getDId() + ", ");
+						model.addAttribute("name", "Name: " + dog.getName() + ", ");
+						model.addAttribute("age", "Age: " + dog.getAge() + ", ");
+						model.addAttribute("breed","Breed: " + dog.getBreed() + ", ");
+						model.addAttribute("upToDateShots", "Up to date shots: " + dog.isUpToDateShots() + ", ");
+						model.addAttribute("gender", "Gender: " + dog.getGender() + ", ");
+						model.addAttribute("locationId", "Location Id: " + dog.getLocationId() + " ");
 					}
 					return "Dogs";
 				}

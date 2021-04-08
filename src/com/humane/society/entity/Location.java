@@ -86,12 +86,26 @@ public class Location {
 		this.employeeList = employeeList;
 	}
 	
+	
+	
 	@Override
 	public String toString() {
-		// need to fill out %3s  in quotation marks (for each thing)
-		return String.format("ID: %-20s Name: %-20s Address: %-20s ", locId, name, address);
+		// need to fill out the first argument, need to figure out how and don't want to rn
+		return String.format("ID: %-20s Name: %-20s Address: %-20s gmId: %-20s", locId, name, address);
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		Location comparedTo = (Location) o;
+		if (this.locId==comparedTo.getLocId()
+			&& this.name.equals(comparedTo.getName())
+			&& this.address.equals(comparedTo.getAddress()) )
+			 {
+			return true;
+		}
+		
+		return false;
+	}
 	
 	
 	

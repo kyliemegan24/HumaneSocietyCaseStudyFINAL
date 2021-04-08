@@ -62,18 +62,14 @@ public class HumaneSocietyAppMain {
 		Employee e3 = new Employee(3, "Kate", "Kuman", 70000.00, "Adoption Assistant", 2, "kylie3");
 		Employee e4 = new Employee(4, "Tay", "Tashton", 70000.00, "Adoption Assitant", 2, "kylie4");
 		Employee e5 = new Employee(5, "Caleb", "Colcutt", 100000.00, "Resident Vet", 1, "kylie5");
-		Employee e6 = new Employee(6, "Jan", "Jidt", 100000.00, "Manager", 2, "kylie6");
-		Employee e7 = new Employee(7, "Natalie", "Need", 70000.00, "Adoption Assistant", 1, "kylie7");
-		Employee e8 = new Employee(8, "Beata", "Banders", 20000.00, "Jr. Adoption Assistant", 1, "kylie8");
+		
 		
 		em.persist(e1);
 		em.persist(e2);
 		em.persist(e3);
 		em.persist(e4);
 		em.persist(e5);
-		em.persist(e6);
-		em.persist(e7);
-		em.persist(e8);
+		
 		
 		
 		//creating stores to put in database
@@ -84,14 +80,13 @@ public class HumaneSocietyAppMain {
 		emps1.add(e1);
 		emps1.add(e2);
 		emps1.add(e5);
-		emps1.add(e7);
-		emps1.add(e8);
+		
 	
 		Location loc2 = new Location(2, "Downtown Humane Society", "5555 Shepard Rd, St Paul, MN 55105", new ArrayList<Employee>());
 		List<Employee> emps2 = loc2.getEmployeeList();
 		emps2.add(e3);
 		emps2.add(e4);
-		emps2.add(e6);
+	
 		
 		em.persist(loc1);
 		em.persist(loc2);
