@@ -17,6 +17,8 @@ Repository Link - https://github.com/kyliemegan24/HumaneSocietyCaseStudyFINAL
 
 4. Navigate to cats, dogs, employees, or locations to use the queries in order to find the information you're looking for. 
 
+### DATABASE VISUAL
+<img src="drawsql.jpeg">
 
 ### User Stories: 
 **Homepage**: As a humane society employee, I want to be able to read the FAQs on how the site works so that I may use the site in the most efficient way possible.
@@ -25,10 +27,10 @@ Repository Link - https://github.com/kyliemegan24/HumaneSocietyCaseStudyFINAL
 about dogs, cats, employees, and locations related to our humane society.
 
 **Cats**: As a humane society employee, I want to access the cats in our database to update their information/add and remove cats so that our database can be most up to date.
-  Get Cat Form: As a humane society employee I want to be able to find a cat in our database by id, so that I may view their other information quickly and easily.
-  Add Cat Form: As a humane society employee I want to be able to add a new cat to the database, so that it's information may be added to our database quickly and easily.
-  Update Cat Form: As a humane society employee I want to be able to update a cat's information, so that the database accurately reflects information about that cat.
-  Remove Cat Form: As a humane society employee I want to be able to remove a cat's information, so that our other employees can see that this cat is no longer in our database and no longer available 
+  - Get Cat Form: As a humane society employee I want to be able to find a cat in our database by id, so that I may view their other information quickly and easily.
+  - Add Cat Form: As a humane society employee I want to be able to add a new cat to the database, so that it's information may be added to our database quickly and easily.
+  - Update Cat Form: As a humane society employee I want to be able to update a cat's information, so that the database accurately reflects information about that cat.
+  - Remove Cat Form: As a humane society employee I want to be able to remove a cat's information, so that our other employees can see that this cat is no longer in our database and no longer available 
   for adoption
   
 
