@@ -31,6 +31,8 @@ Repository Link - https://github.com/kyliemegan24/HumaneSocietyCaseStudyFINAL
 about dogs, cats, employees, and locations related to our humane society.
 
 **Cats**: As a humane society employee, I want to access the cats in our database to update their information/add and remove cats so that our database can be most up to date.
+
+  - Get All Cats Form: As a humane society employee, I want to be able to view all the cats we have in our database from all locations so that we can assess our broader capacity
   - Get Cat Form: As a humane society employee I want to be able to find a cat in our database by id, so that I may view their other information quickly and easily.
   - Add Cat Form: As a humane society employee I want to be able to add a new cat to the database, so that it's information may be added to our database quickly and easily.
   - Update Cat Form: As a humane society employee I want to be able to update a cat's information, so that the database accurately reflects information about that cat.
@@ -39,6 +41,7 @@ about dogs, cats, employees, and locations related to our humane society.
   
 
 **Dogs**: As a humane society employee, I want access to the dogs in our database in order to update their information/add and remove dogs so that our database can be up to date and accurate.
+  - Get All Dogs Form: As a humane society employee, I want to be able to view all the dogs we have in our database from all locations so that we can assess our broader capacity
   
   - Get Dog Form: As a humane society employee I want to be able to find a dog in our database by id, so that I may view their other information quickly and easily.
   
@@ -50,7 +53,8 @@ about dogs, cats, employees, and locations related to our humane society.
   for adoption
   
 **Employees**: As a humane society employee, I want to be able to see the employees from all locations in our database so that I may update their information and add/remove employees as needed.
-   
+   - Get All Employees Form: As a humane society employee, I want to be able to view all the employees we have in our database from all locations so that we can assess our need for more employees
+   - 
    - Get Employee Form: As a humane society employee, I want to be able to look up an employee by id so that I may view their other information if needed.
    
   -  Add Employee Form: As a humane society employee I want to be able to add a new employee, so that when new employees are hired they may be quickly and easily added to our database.
@@ -61,6 +65,8 @@ about dogs, cats, employees, and locations related to our humane society.
    
    
 **Locations**: As a humane society employee, I want to be able to add, delete, update, and find information about our various locations so that our database may be up to date.
+
+- Get All Locations Form: As a humane society employee, I want to be able to view all the locations so that I can view all addresses and names for mailing purposes or for directing adopters to different locations
  
  - Get Location Form: As a humane society employee, I want to be able to look up locations by their location id, so that I may see their name and address quickly and easily.
    
@@ -76,14 +82,17 @@ about dogs, cats, employees, and locations related to our humane society.
 
 ### Technology Used: 
 - Java
+- Maven
+- Apache TomCat
 - JPA
+- JUNIT
 - MySQL
 - Eclipse
 - HTML
 - CSS
-- JSP
+- Spring MVC
 
 
 
 
- #### License info: None
+ ### License info: None
