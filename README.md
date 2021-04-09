@@ -54,7 +54,7 @@ about dogs, cats, employees, and locations related to our humane society.
   
 **Employees**: As a humane society employee, I want to be able to see the employees from all locations in our database so that I may update their information and add/remove employees as needed.
    - Get All Employees Form: As a humane society employee, I want to be able to view all the employees we have in our database from all locations so that we can assess our need for more employees
-   - 
+  
    - Get Employee Form: As a humane society employee, I want to be able to look up an employee by id so that I may view their other information if needed.
    
   -  Add Employee Form: As a humane society employee I want to be able to add a new employee, so that when new employees are hired they may be quickly and easily added to our database.
@@ -70,13 +70,13 @@ about dogs, cats, employees, and locations related to our humane society.
  
  - Get Location Form: As a humane society employee, I want to be able to look up locations by their location id, so that I may see their name and address quickly and easily.
    
-   - Add Location Form: As a humane society employee, I want to be able to add a new location so that our employees can view data on that location in our database
+ - Add Location Form: As a humane society employee, I want to be able to add a new location so that our employees can view data on that location in our database
   
-  - Update Location Form: As a humane society employee I want to be able to update location information so that our database shows accurate location names and addresses.
+- Update Location Form: As a humane society employee I want to be able to update location information so that our database shows accurate location names and addresses.
    
-   - Remove Location Form: As a humane society employee I want to be able to remove a location so that if a location closes, our database can reflect that.
+ - Remove Location Form: As a humane society employee I want to be able to remove a location so that if a location closes, our database can reflect that.
    
-   - Get Employees by location Form: As a humane society employee I want to be able to look up employees by location id, so that i may see a list of the employees that work at each location in order to assess
+- Get Employees by location Form: As a humane society employee I want to be able to look up employees by location id, so that i may see a list of the employees that work at each location in order to assess
    whether team members should be moved to different locations based on resource availability for each location.
 
 
