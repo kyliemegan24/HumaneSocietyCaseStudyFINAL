@@ -72,7 +72,7 @@ public class HumaneSocietyAppMain {
 		
 		
 		
-		//creating stores to put in database
+		//adding locations to database
 		
 		
 		Location loc1 = new Location(1, "Highland Park Humane Society", "1111 Marc Ave, Saint Paul MN, 55102", new ArrayList<Employee>());

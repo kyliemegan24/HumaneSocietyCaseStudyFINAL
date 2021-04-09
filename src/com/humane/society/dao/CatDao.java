@@ -2,13 +2,13 @@ package com.humane.society.dao;
 
 import java.util.List;
 
-import javax.persistence.Query;
+
 
 import org.springframework.stereotype.Repository;
 
 import com.humane.society.dbConnection.DBConnection;
 import com.humane.society.entity.Cat;
-import com.humane.society.entity.Employee;
+
 
 @Repository
 public class CatDao extends DBConnection implements CatDaoI {

@@ -211,6 +211,7 @@ public class HomeController {
 		public String updateEmployee(@ModelAttribute("employee") Employee emp, Model model, BindingResult result, HttpSession session) {
 			Object loggedIn = session.getAttribute("currentUser");
 			int eId = emp.getEId();
+			
 			List<Employee> empList = empService.getAllEmpService();
 			List<Integer> empIds = new ArrayList<Integer>();
 			for (Employee e : empList) {
@@ -223,7 +224,14 @@ public class HomeController {
 				model.addAttribute("updateEmpSessionError", "You must be logged in to update an employee in the database");
 				return "Employees";
 			} else {
+				Employee emp1 = empService.getEmpService(eId);
+				int locId1 = emp1.getLocationId();
+				int locId = emp.getLocationId();
+
+				locService.removeEmpFromLocService(eId, locId1);
+				locService.addEmpToLocService(eId, locId);
 				empService.updateEmpService(emp);
+				
 				model.addAttribute("updateEmpSuccess", "Employee updated successfully!");
 				System.out.println("updated successfully");
 			}
@@ -374,6 +382,7 @@ public class HomeController {
 				//Cat CRUD methods 
 				
 				// shows all locations in the database
+				
 				@PostMapping("/viewCats")
 				public String viewCatsByID(@ModelAttribute("cat") Cat cat, Model model, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
@@ -385,6 +394,8 @@ public class HomeController {
 					}
 					return "Cats";
 				}
+				
+				// adds cat to database
 				
 				@PostMapping("/addCat")
 				public String addNewCat(@ModelAttribute("cat") Cat cat, Model model, BindingResult result, HttpSession session) {
@@ -401,7 +412,11 @@ public class HomeController {
 					} else if (loggedIn==null) {
 						model.addAttribute("addCatSessionError", "Please log in to complete this action");
 						return "Cats";
-					} else if (catIds.contains(cId)) {
+					} else if (cat.getGender() <1 || cat.getGender() > 2) {
+							model.addAttribute("addCatGenderError", "Please select a Gender value of 1 or 2");
+							return "Cats";
+						}
+					 else if (catIds.contains(cId)) {
 						model.addAttribute("addCatNoDuplicate", "This Id already belongs to another cat");
 						try {
 							throw new NoDuplicateException("This Id already belongs to another cat");
@@ -426,6 +441,8 @@ public class HomeController {
 					return "Cats";
 				}
 				
+				//looks up cat by id
+				
 				@PostMapping("/getCat")
 				public String getCat(@ModelAttribute("cat") Cat cat, @RequestParam("cId") int cId, Model model, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
@@ -447,6 +464,8 @@ public class HomeController {
 					return "Cats";
 				}
 				
+				// updates cat information in the database
+				
 				@PostMapping("/updateCat")
 				public String updateCat(@ModelAttribute("cat") Cat cat, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
@@ -463,6 +482,9 @@ public class HomeController {
 						model.addAttribute("updateCatSessionError", "You must be logged in to update a cat in the database");
 						return "Cats";
 					
+					} else if (cat.getGender() <1 || cat.getGender() > 2) {
+							model.addAttribute("updateCatGenderError", "Please select a Gender value of 1 or 2");
+							return "Cats";
 					} else {
 						int locId = cat.getLocationId();
 						Location location = locService.getLocService(locId);
@@ -476,8 +498,10 @@ public class HomeController {
 					}
 					
 					return "Cats";
+					}
 				}
-				}
+				
+				//removes a cat from the database by id
 				
 				@PostMapping("/removeCat")
 				public String removeCat(@ModelAttribute("cat") Cat cat, @RequestParam("cId") int cId, Model model, HttpSession session) {
@@ -512,6 +536,8 @@ public class HomeController {
 					return "Dogs";
 				}
 				
+				// adds a dog to the database
+				
 				@PostMapping("/addDog")
 				public String addNewDog(@ModelAttribute("dog") Dog dog, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
@@ -535,7 +561,10 @@ public class HomeController {
 							e.printStackTrace();
 						}
 						return "Dogs";  
-					}  else {
+					} else if (dog.getGender() <1 || dog.getGender() > 2) {
+						model.addAttribute("addDogGenderError", "Please select a Gender value of 1 or 2");
+						return "Dogs";
+					} else {
 						int locId = dog.getLocationId();
 						Location location = locService.getLocService(locId);
 						if (location==null) {
@@ -551,6 +580,8 @@ public class HomeController {
 					}
 					return "Dogs";
 				}
+				
+				// gets dog from database by its id 
 				
 				@PostMapping("/getDog")
 				public String getDog(@ModelAttribute("dog") Dog dog, @RequestParam("dId") int dId, Model model, HttpSession session) {
@@ -573,6 +604,8 @@ public class HomeController {
 					return "Dogs";
 				}
 				
+				//updates an existing dogs information in the database
+				
 				@PostMapping("/updateDog")
 				public String updateDog(@ModelAttribute("dog") Dog dog, Model model, BindingResult result, HttpSession session) {
 					Object loggedIn = session.getAttribute("currentUser");
@@ -582,7 +615,10 @@ public class HomeController {
 					} else if (loggedIn==null) {
 						model.addAttribute("updateDogSessionError", "You must be logged in to update a dog in the database");
 						return "Dogs";
-					} else {
+					} else if (dog.getGender() <1 || dog.getGender() > 2) {
+						model.addAttribute("updateDogGenderError", "Please select a Gender value of 1 or 2");
+						return "Dogs";
+					}else {
 						dogService.updateDogService(dog);
 						model.addAttribute("updateDogSuccess", "Dog updated successfully!");
 					
@@ -590,6 +626,8 @@ public class HomeController {
 					
 					return "Dogs";
 				}
+				
+				// removes a dog from the database by id
 				
 				@PostMapping("/removeDog")
 				public String removeDog(@ModelAttribute("dog") Dog dog, @RequestParam("dId") int dId, Model model, HttpSession session) {

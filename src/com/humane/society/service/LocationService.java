@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.humane.society.dao.LocationDao;
-import com.humane.society.entity.Cat;
 import com.humane.society.entity.Employee;
 import com.humane.society.entity.Location;
 

@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Humane Society Employees</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <spring:url value="/resources/css/styles.css" var="mainCss"/>
@@ -29,7 +30,7 @@
 </style>
 <body onload='document.form1.text1.focus()'>
 
-    <!--Bootstrap Navbar Code--> 
+    <!--Bootstrap nav-bar Code--> 
     
     <%@include file="navbar.jsp" %>
     
@@ -38,11 +39,11 @@
     <div class="mail">
         <form:form action="./viewLocs" method="post" modelAttribute="location">
             <div class="form-group">
-            <h1>View All Locations</h1>
+            <h3>View All Locations</h3>
             <br>
             <button value="View Locations" type="submit" class="btn btn-primary">View Locations</button>
             <br>
-            <h3 class="main-body-text">${viewLocSessionError}</h3>
+            <h4 class="main-body-text">${viewLocSessionError}</h4>
 		    <div class="main-body-text" >
 				<c:forEach items = "${locList}" var="locs">
 					<h5><c:out value="${locs}"/></h5>
@@ -58,16 +59,16 @@
     <div class="mail">
         <form:form action="./getLocation" method="post" modelAttribute="location">
             <div class="form-group">
-            <h1>Find Location by Id</h1>
+            <h3>Find Location by Id</h3>
             <label for="exampleFormControlInput1">Enter Location Id</label>
             <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
             <form:errors path="locId"/>
             <br>
-            <button value="Get Location" type="submit" class="btn btn-primary">Submit</button>
+            <button value="Get Location" type="submit" class="btn btn-primary">Find Location</button>
             <br>
-            <h3 class="main-body-text">${getLocSessionError}</h3>
-		    <h3 class="main-body-text">${getLocError}</h3>
-		    <h5 class="main-body-text">${locId}${name}${address}</h5>
+            <h4 class="main-body-text">${getLocSessionError}</h4>
+		    <h4 class="main-body-text">${getLocError}</h4>
+		    <h4 class="main-body-text">${locId}${name}${address}</h4>
 		    </div>
         </form:form>
     </div>
@@ -80,9 +81,9 @@
         <form:form action="./addLocation" method="post" modelAttribute="location">
             
             <div class="form-group">
-             <h1>Add New Location</h1>
+             <h3>Add New Location</h3>
               <label for="exampleFormControlInput1">Enter a New Location Id</label>
-              <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="locId"/>
             </div>
               
@@ -97,12 +98,12 @@
               <form:input path="address" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1111 Marc Street, Saint Paul, MN 55105"/>
               <form:errors path="address"/>
               <br>
-              <button value="Add New Location" type="submit" class="btn btn-primary">Submit</button>
+              <button value="Add New Location" type="submit" class="btn btn-primary">Add Location</button>
               
-            <h3 class="main-body-text">${addLocationError}</h3>
-            <h3 class="main-body-text">${addLocNoDuplicate}</h3>
-		    <h3 class="main-body-text">${addLocationSessionError}</h3>
-		   	<h3 class="main-body-text">${addLocationSuccess}</h3>
+            <h4 class="main-body-text">${addLocationError}</h4>
+            <h4 class="main-body-text">${addLocNoDuplicate}</h4>
+		    <h4 class="main-body-text">${addLocationSessionError}</h4>
+		   	<h4 class="main-body-text">${addLocationSuccess}</h4>
 		   	
             </div>
         </form:form>
@@ -113,16 +114,16 @@
     <div class="mail">
       <form:form action="./removeLocation" method="post" modelAttribute="location">
           <div class="form-group">
-          <h1>Delete Location by Id</h1>
+          <h3>Delete Location by Id</h3>
           <label for="exampleFormControlInput1">Enter Location Id</label>
-          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="locId"/>
           <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Delete Location</button>
           <br>
-          <h3 class="main-body-text">${removeLocationError}</h3>
-		  <h3 class="main-body-text">${removeLocSessionError}</h3>
-		  <h3 class="main-body-text">${removeLocSuccess}</h3>
+          <h4 class="main-body-text">${removeLocationError}</h4>
+		  <h4 class="main-body-text">${removeLocSessionError}</h4>
+		  <h4 class="main-body-text">${removeLocSuccess}</h4>
 		   	
           </div>
       </form:form>
@@ -135,28 +136,28 @@
     <form:form action="./updateLocation" method="post" modelAttribute="location">
             
         <div class="form-group">
-         <h1>Update Location Details</h1>
+         <h3>Update Location Details</h3>
           <label for="exampleFormControlInput1">Enter Location Id</label>
-          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="locId"/>
         </div>
           
         <div class="form-group">
-          <label for="exampleFormControlInput1">Enter Location Name</label>
+          <label for="exampleFormControlInput1">Update Location Name</label>
           <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Highland Park Humane Society"/>
           <form:errors path="name"/>
         </div>
           
         <div class="form-group">
-          <label for="exampleFormControlInput1">Enter Location Address</label>
+          <label for="exampleFormControlInput1">Update Location Address</label>
           <form:input path="address" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1111 Marc Street, Saint Paul, MN 55105"/>
           <form:errors path="address"/>
           <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Update Location</button>
           <br>
-           <h3 class="main-body-text">${updatetLocError}</h3>
-		   <h3 class="main-body-text">${updateLocSessionError}</h3>
-		   <h3 class="main-body-text">${updateLocSuccess}</h3>
+           <h4 class="main-body-text">${updatetLocError}</h4>
+		   <h4 class="main-body-text">${updateLocSessionError}</h4>
+		   <h4 class="main-body-text">${updateLocSuccess}</h4>
         </div>
         
     </form:form>
@@ -169,24 +170,22 @@
     <form:form action="./getEmpList" method="post" modelAttribute="location">
             
         <div class="form-group">
-         <h1>See Employees by Location Id</h1>
+         <h3>See Employees by Location Id</h3>
           <label for="exampleFormControlInput1">Enter a Location Id</label>
-          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="locId" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="locId"/>
        
           <br>
         <div>
-          <button value="View Employees" type="submit" class="btn btn-primary">Submit</button>
+          <button value="View Employees" type="submit" class="btn btn-primary">See Employees</button>
           
-           <h3 class="main-body-text">${empListLocError}</h3>
+           <h4 class="main-body-text">${empListLocError}</h4>
 		   
-		   	<h3 class="main-body-text">${empListSessionError}</h3>
-		   	<div class="main-body-text">
+		   	<h4 class="main-body-text">${empListSessionError}</h4>
+		   	<div class="main-body-text getAll">
 		   		<c:forEach items = "${empList}" var="emps">
-		   			<h5><c:out value="${emps}"/></h5>
+		   			<h6><c:out value="${emps}"/></h6>
 		   			</c:forEach>
-		   		
-		   	
 		   	</div>
         </div>
          </div>

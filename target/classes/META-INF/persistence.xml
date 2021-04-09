@@ -3,7 +3,7 @@
 	<persistence-unit name="HumaneSocietyCaseStudy">
 	
 	
-	<!-- Class -->
+	<!-- Classes -->
 		<class>com.humane.society.entity.Employee</class>
 		<class>com.humane.society.entity.Cat</class>
 		<class>com.humane.society.entity.Dog</class>

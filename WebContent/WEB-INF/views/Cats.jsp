@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Humane Society Cats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <spring:url value="/resources/css/styles.css" var="mainCss"/>
@@ -34,18 +35,18 @@
     
     <br>
     
-    
+    <!-- Form for viewing all cats -->
     <div class="mail">
         <form:form action="./viewCats" method="post" modelAttribute="cat">
             <div class="form-group">
-            <h1>View All Cats</h1>
+            <h3>View All Cats</h3>
             <br>
             <button value="View Cats" type="submit" class="btn btn-primary">View Cats</button>
             <br>
-            <h3 class="main-body-text">${viewCatSessionError}</h3>
-		    <div class="main-body-text" >
+            <h4 class="main-body-text">${viewCatSessionError}</h4>
+		    <div class="main-body-text getAll" >
 				<c:forEach items = "${catList}" var="cats">
-					<h5><c:out value="${cats}"/></h5>
+					<h6><c:out value="${cats}"/></h6>
 				</c:forEach>
 				</div>
 		    </div>
@@ -56,16 +57,16 @@
     <div class="mail">
         <form:form action="./getCat" method="post" modelAttribute="cat">
             <div class="form-group">
-            <h1>Find Cat by Id</h1>
+            <h3>Find Cat by Id</h3>
             <label for="exampleFormControlInput1">Enter Cat Id</label>
-            <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1"/>
             <form:errors path="cId"/>
             <br>
             <button value="Get Cat" type="submit" class="btn btn-primary">Submit</button>
             <br>
-            <h3 class="main-body-text">${getCatSessionError}</h3>
-		    <h3 class="main-body-text">${getCatError}</h3>
-		    <h5 class="main-body-text">${cId}${name}${age}${breed}${upToDateShots}${gender}${locationId}</h5>
+            <h4 class="main-body-text">${getCatSessionError}</h4>
+		    <h4 class="main-body-text">${getCatError}</h4>
+		    <h4 class="main-body-text">${cId}${name}${age}${breed}${upToDateShots}${gender}${locationId}</h4>
        		</div>
         </form:form>
     </div>
@@ -78,21 +79,21 @@
         <form:form action="./addCat" method="post" modelAttribute="cat">
             
             <div class="form-group">
-             <h1>Add New Cat to Records</h1>
+             <h3>Add New Cat to Records</h3>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="cId"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter a New Name</label>
-              <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Hila"/>
+              <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="name"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Age (in years)</label>
-              <form:input path="age" type="number" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+              <form:input path="age" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="age"/>
             </div>
               
@@ -104,39 +105,34 @@
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Is this cat up to date on shots? (enter 1 for YES, or 2 for NO)</label>
-              <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="upToDateShots"/>
             </div>
               
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Cat Gender (1 for MALE, or 2 for FEMALE)</label>
-              <form:input path="gender" type="number" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <form:input path="gender" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="gender"/>
               
             </div>    
             
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter the location id of the location where this cat is being held</label>
-              <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+              <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="locationId"/>
             
             
-             <%-- <div class="form-group">
-              <label for="exampleFormControlInput1">Enter image for cat</label>
-              <form:input path="catPicture" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
-              <form:errors path="catPicture"/>
-            </div> --%>
-            
             <br>
-            <button value="Add Cat" type="submit" class="btn btn-primary">Submit</button>    
+            <button value="Add Cat" type="submit" class="btn btn-primary">Add Cat</button>    
             <br>
               
-            <h3 class="main-body-text">${addCatLocError}</h3>
-            <h3 class="main-body-text">${addCatNoDuplicate}</h3>
-		    <h3 class="main-body-text">${addCatSessionError}</h3>
-		   	<h3 class="main-body-text">${addCatError}</h3>
-		   	<h3 class="main-body-text">${successMessage}</h3>
+            <h4 class="main-body-text">${addCatLocError}</h4>
+            <h4 class="main-body-text">${addCatGenderError}</h4>
+            <h4 class="main-body-text">${addCatNoDuplicate}</h4>
+		    <h4 class="main-body-text">${addCatSessionError}</h4>
+		   	<h4 class="main-body-text">${addCatError}</h4>
+		   	<h4 class="main-body-text">${successMessage}</h4>
            </div>
         </form:form>
         </div>
@@ -146,16 +142,16 @@
     <div class="mail">
       <form:form action="./removeCat" method="post" modelAttribute="cat">
           <div class="form-group">
-          <h1>Delete Cat by Id</h1>
+          <h3>Delete Cat by Id</h3>
           <label for="exampleFormControlInput1">Enter Cat Id</label>
-          <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="cId"/>
           <br>
-          <button value="Delete Cat" type="submit" class="btn btn-primary">Submit</button>
+          <button value="Delete Cat" type="submit" class="btn btn-primary">Delete Cat</button>
           <br>
-          <h3 class="main-body-text">${RemoveCatError}</h3>
-		  <h3 class="main-body-text">${removeCatSessionError}</h3>
-		  <h3 class="main-body-text">${removeCatSuccess}</h3>
+          <h4 class="main-body-text">${RemoveCatError}</h4>
+		  <h4 class="main-body-text">${removeCatSessionError}</h4>
+		  <h4 class="main-body-text">${removeCatSuccess}</h4>
 		  </div>
       </form:form>
   </div>
@@ -167,55 +163,56 @@
     <form:form action="./updateCat" method="post" modelAttribute="cat">
         
         <div class="form-group">
-         <h1>Update Existing Cat</h1>
+         <h3>Update Existing Cat</h3>
           <label for="exampleFormControlInput1">Enter Cat Id</label>
-          <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="cId" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="cId"/>
         </div>
           
         <div class="form-group">
-          <label for="exampleFormControlInput1">Enter Cat Name</label>
-          <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Hila"/>
+          <label for="exampleFormControlInput1">Update Cat Name</label>
+          <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="name"/>
         </div>
           
         <div class="form-group">
-          <label for="exampleFormControlInput1">Enter Cat Age (in years)</label>
-          <form:input path="age" type="number" class="form-control" id="exampleFormControlInput1" placeholder="3"/>
+          <label for="exampleFormControlInput1">Update Cat Age (in years)</label>
+          <form:input path="age" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="age"/>
         </div>
           
         <div class="form-group">
-          <label for="exampleFormControlInput1">Enter Cat Breed</label>
+          <label for="exampleFormControlInput1">Update Cat Breed</label>
           <form:input path="breed" type="text" class="form-control" id="exampleFormControlInput1" placeholder="orange tabby"/>
           <form:errors path="breed"/>
         </div>
         
          <div class="form-group">
              <label for="exampleFormControlInput1">Is this cat up to date on shots? (enter 1 for YES, or 2 for NO)</label>
-             <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+             <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1"/>
              <form:errors path="upToDateShots"/>
         </div>
             
 
             <div class="form-group">
-              <label for="exampleFormControlInput1">Enter Cat Gender (1 for MALE, or 2 for FEMALE)</label>
-              <form:input path="gender" type="number" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <label for="exampleFormControlInput1">Update Cat Gender (1 for MALE, or 2 for FEMALE)</label>
+              <form:input path="gender" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="gender"/>
             </div>  
             
              <div class="form-group">
-              <label for="exampleFormControlInput1">Enter Location Id </label>
-              <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="2"/>
+              <label for="exampleFormControlInput1">Update Location Id </label>
+              <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="locationId"/>
             <br>
-            <button value="Update Cat" type="submit" class="btn btn-primary">Submit</button>    
+            <button value="Update Cat" type="submit" class="btn btn-primary">Update Cat</button>    
             <br>
                 
-            <h3 class="main-body-text">${updateCatLocError}</h3>
-		    <h3 class="main-body-text">${updateCatSessionError}</h3>
-		   	<h3 class="main-body-text">${updateCatError}</h3>
-		   	<h3 class="main-body-text">${updateCatSuccess}</h3>
+            <h4 class="main-body-text">${updateCatLocError}</h4>
+            <h4 class="main-body-text">${updateCatGenderError}</h4>
+		    <h4 class="main-body-text">${updateCatSessionError}</h4>
+		   	<h4 class="main-body-text">${updateCatError}</h4>
+		   	<h4 class="main-body-text">${updateCatSuccess}</h4>
 		   	</div> 
     </form:form>
     </div>

@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Humane Society Employees</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <spring:url value="/resources/css/styles.css" var="mainCss"/>
@@ -34,20 +35,19 @@
     <%@include file="navbar.jsp" %>
     
     <br>
-    <!-- View all employees -->
+    <!-- View all employees form -->
     <div class="mail">
   <form:form action="./viewEmps" method="post" modelAttribute="employees">
 			<div class="form-group">
-				<h1>View All Employees</h1>
+				<h3>View All Employees</h3>
 			
-			<br>
 			<div>
 			    <button type="submit" class="btn btn-primary" value="Get Employees">View Employees</button>
 			</div>
 			<h3 class="main-body-text">${viewEmpSessionError}</h3>
-			<div class="main-body-text" >
+			<div class="main-body-text getAll" >
 				<c:forEach items = "${empList}" var="emp">
-					<h5><c:out value="${emp}"/><h5>
+					<h6><c:out value="${emp}"/></h6>
 				</c:forEach>
 				</div>
 			</div>
@@ -59,16 +59,16 @@
     <div class="mail">
         <form:form action="./getEmp" method="post" modelAttribute="employee">
             <div class="form-group">
-            <h1>Find Employee by Id</h1>
+            <h3>Find Employee by Id</h3>
             <label for="exampleFormControlInput1">Enter Employee Id</label>
-            <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+            <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1"/>
             <form:errors path="eId"/>
             <br>
-            <button type="submit" class="btn btn-primary" value="Get Employee">Submit</button>
+            <button type="submit" class="btn btn-primary" value="Get Employee">Find Employee</button>
             <br>
-            <h3 class="main-body-text">${getEmpSessionError}</h3>
-		    <h3 class="main-body-text">${getEmpError}</h3>
-		    <h5 class="main-body-text">${eId}${firstName}${lastName}${salary}${position}${locationId}</h5>
+            <h4 class="main-body-text">${getEmpSessionError}</h4>
+		    <h4 class="main-body-text">${getEmpError}</h4>
+		    <h4 class="main-body-text">${eId}${firstName}${lastName}${salary}${position}${locationId}</h4>
 		    </div>
         </form:form>
     </div>
@@ -81,39 +81,39 @@
         <form:form action="./addEmp" method="post" modelAttribute="employee">
             
             <div class="form-group">
-             <h1>Add New Employee to Records</h1>
+             <h3>Add New Employee to Records</h3>
               <label for="exampleFormControlInput1">Enter a New Id</label>
-              <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+              <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="eId"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee's First Name</label>
-              <form:input path="firstName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Abby"/>
+              <form:input path="firstName" type="text" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="firstName"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee Last Name</label>
-              <form:input path="lastName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Baka"/>
+              <form:input path="lastName" type="text" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="lastName"/>
             </div>
               
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter Employee Salary (USD)</label>
-              <form:input path="salary" type="number" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
+              <form:input path="salary" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="salary"/>
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Employee Position</label>
-                <form:input path="position" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant"/>
+                <form:input path="position" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assistant"/>
                 <form:errors path="position"/>
             </div>
               
             <div class="form-group">
                 <label for="exampleFormControlInput1">Enter Location Id</label>
-                <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+                <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1"/>
                 <form:errors path="locationId"/>
             </div>
               
@@ -123,13 +123,13 @@
                 <form:errors path="password"/>
                     
                 <br>
-                <button type="submit" class="btn btn-primary" value="Add Employee">Submit</button>
+                <button type="submit" class="btn btn-primary" value="Add Employee">Add Employee</button>
                 <br>
-                <h3 class="main-body-text">${addEmpNoDuplicate}</h3>
-            	<h3 class="main-body-text">${addEmpLocError}</h3>
-		   		<h3 class="main-body-text">${addEmpSessionError}</h3>
-		   	    <h3 class="main-body-text">${errorMessage}</h3>
-		   	    <h3 class="main-body-text">${successMessage}</h3>
+                <h4 class="main-body-text">${addEmpNoDuplicate}</h4>
+            	<h4 class="main-body-text">${addEmpLocError}</h4>
+		   		<h4 class="main-body-text">${addEmpSessionError}</h4>
+		   	    <h4 class="main-body-text">${errorMessage}</h4>
+		   	    <h4 class="main-body-text">${successMessage}</h4>
             
             </div>
            	
@@ -141,17 +141,17 @@
     <div class="mail">
       <form:form action="./removeEmp" method="post" modelAttribute="employee">
           <div class="form-group">
-          <h1>Delete Employee by Id</h1>
+          <h3>Delete Employee by Id</h3>
           <label for="exampleFormControlInput1">Enter Employee Id</label>
-          <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="eId"/>
           <br>
-          <button value="Remove Employee" type="submit" class="btn btn-primary">Submit</button>
+          <button value="Remove Employee" type="submit" class="btn btn-primary">Delete Employee</button>
           <br>
           
-          <h3 class="main-body-text">${removeEmpSessionError}</h3>
-		  <h3 class="main-body-text">${removeEmpError}</h3>
-		  <h3 class="main-body-text">${removeEmpSuccess}</h3>
+          <h4 class="main-body-text">${removeEmpSessionError}</h4>
+		  <h4 class="main-body-text">${removeEmpError}</h4>
+		  <h4 class="main-body-text">${removeEmpSuccess}</h4>
 		  
 		  </div>
       </form:form>
@@ -164,54 +164,54 @@
     <form:form action="./updateEmp" method="post" modelAttribute="employee">
             
         <div class="form-group">
-         <h1>Update Employee Information</h1>
+         <h3>Update Employee Information</h3>
           <label for="exampleFormControlInput1">Enter Employee Id</label>
-          <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1234"/>
+          <form:input path="eId" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="eId"/>
         </div>
           
         <div class="form-group">
-          <label for="exampleFormControlInput1">Enter Employee's First Name</label>
-          <form:input path="firstName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Abby"/>
+          <label for="exampleFormControlInput1">Update Employee's First Name</label>
+          <form:input path="firstName" type="text" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="firstName"/>
         </div>
           
         <div class="form-group">
-          <label for="exampleFormControlInput1">Enter Employee Last Name</label>
-          <form:input path="lastName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Baka"/>
+          <label for="exampleFormControlInput1">Update Employee Last Name</label>
+          <form:input path="lastName" type="text" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="lastName"/>
         </div>
           
         <div class="form-group">
-          <label for="exampleFormControlInput1">Enter Employee Salary (USD)</label>
-          <form:input path="salary" type="number" class="form-control" id="exampleFormControlInput1" placeholder="100000"/>
+          <label for="exampleFormControlInput1">Update Employee Salary (USD)</label>
+          <form:input path="salary" type="number" class="form-control" id="exampleFormControlInput1"/>
           <form:errors path="salary"/>
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlInput1">Enter Employee Position</label>
+            <label for="exampleFormControlInput1">Update Employee Position</label>
             <form:input path="position" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adoption Assitant"/>
             <form:errors path="position"/>
         </div>
           
         <div class="form-group">
-            <label for="exampleFormControlInput1">Enter Location Id</label>
-            <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
+            <label for="exampleFormControlInput1">Update Location Id</label>
+            <form:input path="locationId" type="number" class="form-control" id="exampleFormControlInput1"/>
             <form:errors path="locationId"/>
         </div>
           
         <div class="form-group">
-            <label for="exampleFormControlInput1">Enter Employee Password</label>
+            <label for="exampleFormControlInput1">Update Employee Password</label>
             <form:input path="password" type="text" class="form-control" id="exampleFormControlInput1" placeholder="EmployeePassword1!"/>
             <form:errors path="password"/>
                 
             <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Update Employee</button>
         	<br>
-       	  <h3 class="main-body-text">${updateEmpSessionError}</h3>
-       	  <h3 class="main-body-text">${addEmpNoDuplicate}</h3>
-		  <h3 class="main-body-text">${updateEmpError}</h3>
-		  <h3 class="main-body-text">${updateEmpSuccess}</h3>
+       	  <h4 class="main-body-text">${updateEmpSessionError}</h4>
+       	  <h4 class="main-body-text">${addEmpNoDuplicate}</h4>
+		  <h4 class="main-body-text">${updateEmpError}</h4>
+		  <h4 class="main-body-text">${updateEmpSuccess}</h4>
 		  
 		  </div>
     </form:form>
