@@ -428,7 +428,7 @@ public class HomeController {
 						int locId = cat.getLocationId();
 						Location location = locService.getLocService(locId);
 						if (location==null) {
-							model.addAttribute("Loc", "Please ensure that the location ID matches the ID of an existing store");
+							model.addAttribute("addCatLocError", "Please ensure that the location ID matches the ID of an existing store");
 							return "Cats";
 						} else {
 							
@@ -489,7 +489,7 @@ public class HomeController {
 						int locId = cat.getLocationId();
 						Location location = locService.getLocService(locId);
 						if (location==null) {
-							model.addAttribute("Loc", "Please ensure that the location ID matches the ID of an existing store");
+							model.addAttribute("updateCatLocError", "Please ensure that the location ID matches the ID of an existing store");
 							return "Cats"; 
 						} else {
 						catService.updateCatService(cat);
