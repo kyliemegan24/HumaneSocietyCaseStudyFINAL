@@ -108,7 +108,7 @@
             </div>
               
             <div class="form-group">
-              <label for="exampleFormControlInput1">Is this dog up to date on shots? (enter 1 for YES, or 2 for NO)</label>
+              <label for="exampleFormControlInput1">Is this dog up to date on shots? (enter 1 for YES, or 0 for NO)</label>
               <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1"/>
               <form:errors path="upToDateShots"/>
             </div>
@@ -192,7 +192,7 @@
         </div>
         
          <div class="form-group">
-             <label for="exampleFormControlInput1">Is this dog up to date on shots? (enter 1 for YES, or 2 for NO)</label>
+             <label for="exampleFormControlInput1">Is this dog up to date on shots? (enter 1 for YES, or 0 for NO)</label>
              <form:input path="upToDateShots" type="number" class="form-control" id="exampleFormControlInput1"/>
              <form:errors path="upToDateShots"/>
         </div>

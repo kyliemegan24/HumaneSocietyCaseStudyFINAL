@@ -288,7 +288,7 @@ public class HomeController {
 						model.addAttribute("addLocationError", "Please enter valid input");
 						return "Locations";
 					} else if (loggedIn==null) {
-						model.addAttribute("addLocationSessionError", "You must be logged in to add a store to the database");
+						model.addAttribute("addLocationSessionError", "You must be logged in to add a location to the database");
 						return "Locations";
 					} else if (locIds.contains(locId)) {
 						model.addAttribute("addLocNoDuplicate", "This Id already belongs to another location");
@@ -300,7 +300,7 @@ public class HomeController {
 						return "Locations"; 
 					} else {
 						locService.addLocService(loc);
-						model.addAttribute("addLocationSuccess", "Store added to the database successfully!");
+						model.addAttribute("addLocationSuccess", "Location added to the database successfully!");
 						System.out.println("added to db successfully");
 					}
 					return "Locations";

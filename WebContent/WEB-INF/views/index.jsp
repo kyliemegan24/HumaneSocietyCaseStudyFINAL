@@ -75,10 +75,7 @@
     </div>
     <br><br><br>
 
-    <!--Random Pet joke generator button-->
-    <div class="buttondiv">
-        <button style="background-color: purple" type="button" class="btn btn-primary" onclick="displayJoke()">Click me for some random pet jokes!</button>
-    </div>
+   
 
     <!--Bootstrap sticky footer-->
 
